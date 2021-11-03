@@ -70,7 +70,7 @@ class HomeController extends Controller
 
     public function advisoryCouncil()
     {
-        return view('main.maintenance.advisoryCouncil');
+        // return view('main.maintenance.advisoryCouncil');
     }
 
     public function technicalWorkingGroup()

@@ -18,7 +18,11 @@ class UserSeeder extends Seeder
   {
     //
     DB::table('users')->insert([
-      'name' => Str::random(10),
+      'fname' => Str::random(10),
+      'lname' => Str::random(10),
+      'mname' => Str::random(10),
+      'street' => Str::random(10),
+      'street' => Str::random(10),
       'email' => Str::random(10) . '@gmail.com',
       'password' => Hash::make('password'),
       'role' => 'super admin'

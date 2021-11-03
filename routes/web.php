@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvisoryCouncilController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TechWrkGrpController;
@@ -48,11 +49,9 @@ Route::get('/balancedScorecardManagement', [HomeController::class, 'balancedScor
 Route::get('/createmeeting', [HomeController::class, 'createmeeting'])->name('main.activity.createmeeting');
 
 /* Maintenance */
-
-Route::get('/technical-working-group', [TechWrkGrpController::class, 'index'])->name('twg');
-
+Route::get('/advisory-council', [AdvisoryCouncilController::class, 'index'])->name('advCon');
 Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
-Route::get('/advisoryCouncil', [HomeController::class, 'advisoryCouncil'])->name('main.advisoryCouncil');
+Route::get('/technical-working-group', [TechWrkGrpController::class, 'index'])->name('twg');
 
 Route::get('/policeStrategyManagementUnit', [HomeController::class, 'policeStrategyManagementUnit'])->name('main.policeStrategyManagementUnit');
 Route::get('/superadminMaintenance', [HomeController::class, 'superadminMaintenance'])->name('main.superadminMaintenance');
