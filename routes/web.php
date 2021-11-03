@@ -44,7 +44,7 @@ Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
 Route::get('/editacc', [HomeController::class, 'editacc'])->name('main.editacc');
 
 /* Activity */
-Route::get('/create-meetings', [MeetingController::class, 'index'])->name('meetings');
+Route::resource('/create-meetings', MeetingController::class);
 
 Route::get('/activity', [HomeController::class, 'activity'])->name('main.activity.activity');
 Route::get('/balancedScorecardManagement', [HomeController::class, 'balancedScorecardManagement'])->name('main.activity.balancedScorecardManagement');

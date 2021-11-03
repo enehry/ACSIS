@@ -15,6 +15,7 @@ class MeetingController extends Controller
     public function index()
     {
         //
+        //display of table(data)
         return view('meetings.index');
     }
 
@@ -37,6 +38,28 @@ class MeetingController extends Controller
     public function store(Request $request)
     {
         //
+        // $who = $request->input('who');
+        // $what = $request->input('what');
+        // $where = $request->input('where');
+        // $when = $request->input('when');
+        // $why = $request->input('why');
+        // $how = $request->input('how');
+        // $data = array('who' => $who, "what" => $what, "where" => $where, "when" => $when, "why" => $why, "how" => $how);
+        // // MeetingController::table('student_details')->insert($data);
+        // return redirect('/create-meetings')->with('success', 'Contact saved!');
+        // echo "Record inserted successfully.<br/>";
+        // echo '<a href = "/create-meetings">Click Here</a> to go back.';
+        $this->validate($request, [
+            'what' => 'required|max:255',
+            'who' => 'required|max:255',
+            'where' => 'required|max:255',
+            'when' => 'required|max:255',
+            'why' => 'required|max:255'
+        ]);
+
+        $input = $request->all();
+        Meeting::create($input);
+        return redirect('/create-meetings');
     }
 
     /**
@@ -48,6 +71,7 @@ class MeetingController extends Controller
     public function show(Meeting $meeting)
     {
         //
+        // return view('meetings.index');
     }
 
     /**

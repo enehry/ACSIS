@@ -9,7 +9,6 @@
 }
 
 .contentBoxTitle {
-    background-color: blueviolet;
     padding: 5px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -21,8 +20,8 @@
 }
 
 .fivews {
-    background-color: aqua;
-    flex: 50%;
+    background-color: whitesmoke;
+    /* flex: 50%; */
     padding: 5%;
 }
 
