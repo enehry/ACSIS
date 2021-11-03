@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\TechWrkGrpController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -48,9 +49,11 @@ Route::get('/createmeeting', [HomeController::class, 'createmeeting'])->name('ma
 
 /* Maintenance */
 
+Route::get('/technical-working-group', [TechWrkGrpController::class, 'index'])->name('twg');
+
 Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
 Route::get('/advisoryCouncil', [HomeController::class, 'advisoryCouncil'])->name('main.advisoryCouncil');
-Route::get('/technicalWorkingGroup', [HomeController::class, 'technicalWorkingGroup'])->name('main.technicalWorkingGroup');
+
 Route::get('/policeStrategyManagementUnit', [HomeController::class, 'policeStrategyManagementUnit'])->name('main.policeStrategyManagementUnit');
 Route::get('/superadminMaintenance', [HomeController::class, 'superadminMaintenance'])->name('main.superadminMaintenance');
 Route::get('/addOffice', [HomeController::class, 'addOffice'])->name('main.addOffice');

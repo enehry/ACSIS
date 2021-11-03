@@ -15,7 +15,14 @@
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="../css/addadvisor.css">
+  <link rel="stylesheet" href="../css/loading.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -95,7 +102,7 @@
                 <li><a href="/admin">Admin</a></li>
                 @if(Auth::user()->role != 'admin')
                 <li><a href="/advisoryCouncil">Advisory Council</a></li>
-                <li><a href="/technicalWorkingGroup">Technical Working Group</a></li>
+                <li><a href="/technical-working-group">Technical Working Group</a></li>
                 <li><a href="/policeStrategyManagementUnit">Police Strategy Management Unit</a></li>
                 <li><a href="/superadminMaintenance">Superadmin Maintenance</a></li>
                 @endif
@@ -134,7 +141,12 @@
     </div>
 
     <main class="py-4">
-      @yield('content')
+      <br>
+      <br>
+      <br>
+      <div class="container">
+        @yield('content')
+      </div>
     </main>
   </div>
 </body>
