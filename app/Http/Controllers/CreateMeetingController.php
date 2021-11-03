@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Meeting;
+use App\Models\CreateMeeting;
 use Illuminate\Http\Request;
 
-class MeetingController extends Controller
+class CreateMeetingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,6 @@ class MeetingController extends Controller
     public function index()
     {
         //
-        return view('meetings.index');
     }
 
     /**
@@ -42,10 +41,10 @@ class MeetingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Meeting  $meeting
+     * @param  \App\Models\CreateMeeting  $createMeeting
      * @return \Illuminate\Http\Response
      */
-    public function show(Meeting $meeting)
+    public function show(CreateMeeting $createMeeting)
     {
         //
     }
@@ -53,10 +52,10 @@ class MeetingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Meeting  $meeting
+     * @param  \App\Models\CreateMeeting  $createMeeting
      * @return \Illuminate\Http\Response
      */
-    public function edit(Meeting $meeting)
+    public function edit(CreateMeeting $createMeeting)
     {
         //
     }
@@ -65,10 +64,10 @@ class MeetingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Meeting  $meeting
+     * @param  \App\Models\CreateMeeting  $createMeeting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Meeting $meeting)
+    public function update(Request $request, CreateMeeting $createMeeting)
     {
         //
     }
@@ -76,10 +75,10 @@ class MeetingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Meeting  $meeting
+     * @param  \App\Models\CreateMeeting  $createMeeting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Meeting $meeting)
+    public function destroy(CreateMeeting $createMeeting)
     {
         //
     }

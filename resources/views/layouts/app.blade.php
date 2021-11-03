@@ -13,16 +13,18 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-  <!-- Fonts -->
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-  <link rel="stylesheet" href="../css/default.css">
-  <link rel="stylesheet" href="../css/addadvisor.css">
-  <link rel="stylesheet" href="../css/loading.css">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/addadvisor.css">
+    <link rel="stylesheet" href="../css/loading.css">
+    <link rel="stylesheet" href="../css/createmeeting.css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     <!-- Styles -->
@@ -51,14 +53,14 @@
         @endif
     @else
         <!--     <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                </div>
-            </li> -->
+                            </div>
+                        </li> -->
     @endguest
 
     <div id="app">
@@ -90,7 +92,7 @@
                             <label for="show-services">Activity</label>
                             <ul>
                                 <li><a href="/activity">Activity</a></li>
-                                <li><a href="/createmeeting">Create Meeting</a></li>
+                                <li><a href="/create-meetings">Create Meeting</a></li>
                                 <li><a href="/balancedScorecardManagement">Balanced Scorecard Management</a></li>
                             </ul>
                         </li>
@@ -145,15 +147,15 @@
             </nav>
         </div>
 
-    <main class="py-4">
-      <br>
-      <br>
-      <br>
-      <div class="container">
-        @yield('content')
-      </div>
-    </main>
-  </div>
+        <main class="py-4">
+            <br>
+            <br>
+            <br>
+            <div class="container">
+                @yield('content')
+            </div>
+        </main>
+    </div>
 
 </body>
 
