@@ -14,7 +14,7 @@ class AdvisoryCouncilController extends Controller
   public function index()
   {
     //
-    return 'HELLO WORLD MAIN REPO';
+    return 'HELLO FROM ORIGINAL REPOS';
   }
 
   /**
