@@ -1,0 +1,28 @@
+.content1 {
+    background-color: red;
+}
+
+.editAccountForm {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.inputs {
+    background-color: blue;
+    flex: 16.66666666666667%;
+    height: 100%;
+}
+
+.buttons {
+    background-color: yellow;
+    flex: 16.66666666666667%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+
+.bCenter {
+    background-color: pink;
+}

@@ -1,0 +1,172 @@
+.content1 {
+  flex-direction: row;
+  justify-content: space-evenly;
+  overflow: auto;
+}
+
+.contentBox {
+  margin-right: 1%;
+  margin-left: 1%;
+  height: 100%;
+}
+
+.box1 {
+  flex: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbox {
+  flex: 60%;
+}
+
+.bottombox {
+  flex: 40%;
+}
+
+.box2 {
+  flex: 35%;
+  height: 85%;
+}
+
+.boxbottom2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.box2 .contentBoxBottom {
+  padding: 0px;
+}
+
+.boxbottom2 .left {
+  background-color: #dfdee3;
+  flex: 38%;
+  border-bottom-left-radius: 8px;
+  margin-top: -1px;
+  height: 101%;
+  margin-left: -1px;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxbottom2 .left .primaryOffice {
+  flex: 15%;
+}
+
+.boxbottom2 .left .description {
+  flex: 85%;
+}
+
+.boxbottom2 .right {
+  flex: 62%;
+  padding: 1%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.boxbottom2 .right .right1 {
+    flex: 15%;
+}
+
+.boxbottom2 .right .right2 {
+    flex: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.boxbottom2 .right .right2 textarea {
+    max-width: 250px;
+    max-height: 220px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.right3 {
+    flex: 25%;
+}
+
+.right4 {
+
+    flex: 25%;
+}
+
+input[type="submit"] {
+    border-radius: 10px;
+    font: inherit;
+    background-color: #3c2c66;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button {
+    border-radius: 10px;
+    font: inherit;
+    background-color: #787878;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+.box3 {
+  flex: 50%;
+  height: 100%;
+}
+
+.box3 .contentBox .contentBoxBottom {
+  overflow: auto;
+ }
+
+ .box3 .contentBox .contentBoxBottom table {
+   background-color: #dfdee3;
+   border-radius: 5px;
+
+ }
+
+.contentBoxTitle {
+  flex: 10%;
+}
+
+.contentBoxBottom {
+  flex: 100%;
+}
+
+table {
+  margin-left: 1%;
+
+}
+
+td {
+  padding-top: 2%;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 250px;
+  padding: 16px 20px;
+  border-style: solid;
+  background-color: #f1f1f1;
+  border-color: black;
+  border-width: 2px;
+  height: 25px;
+  margin-top: 0.5%;
+  margin-bottom: 1%;
+}
+
+
+@media screen and (max-width: 600px) {
+  .content1 {
+    flex-direction: column;
+  }
+
+  .contentBox {
+    height: 33%;
+    width: 100%;
+  }
+}

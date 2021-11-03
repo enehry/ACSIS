@@ -1,0 +1,53 @@
+.content1 {
+    justify-content: center;
+}
+
+.contentBox {
+    width: 50%;
+    height: 100%;
+}
+
+.contentBoxTitle {
+    flex: 10%;
+}
+
+.contentBoxBottom {
+    flex: 90%;
+
+}
+
+
+.show {
+    float: right;
+    margin-right: 26%;
+    border-radius: 10px;
+    font: inherit;
+    background-color: #3c2c66;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 95%;
+    margin: 0 auto;
+}
+
+tr, td {
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 900px) {
+    .contentBox {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .contentBox {
+        width: 90%;
+    }
+}

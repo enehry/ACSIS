@@ -1,0 +1,126 @@
+.content1 {
+    justify-content: center;
+    display: flex;
+    overflow: auto;
+}
+
+.centerBox {
+    flex: 100%;
+    overflow: auto;
+}
+
+fieldset {
+    border: solid 3px;
+    padding: 1%;
+}
+
+.basicInformation {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    margin-top: 1%;
+}
+
+.bday-sex {
+    margin-top: 1%;
+    display: flex;
+}
+
+.bday {
+    flex: 20%;
+}
+
+.sex {
+    flex: 80%;
+}
+
+.sex label, #sex {
+    margin-right: 0.5%;
+}
+
+#sex {
+    margin-top: 1%;
+}
+
+.address {
+    margin-top: 1%;
+}
+
+.contactInfo {
+    margin-top: 1%;
+    display: flex;
+}
+
+.mobileN {
+    flex: 33.33%;
+}
+
+.landlineN {
+    flex: 33.33%;
+}
+
+.email {
+    flex: 33.33%;
+}
+
+.addStakeholder {
+    margin-top: 1%;
+}
+
+
+/* General */
+
+input[type="text"], input[type="number"] {
+    width: 250px;
+    padding: 16px 20px;
+    border-style: solid;
+    background-color: #f1f1f1;
+    border-color: black;
+    border-width: 2px;
+    height: 25px;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+input[type="date"] {
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color:#f1f1f1;
+    border-color: black;
+    border-width: 2px;
+    height: 25px;
+    margin-top: 1%;
+}
+
+input[type="submit"] {
+    border-radius: 10px;
+    font: inherit;
+    background-color: #3c2c66;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 846px) {
+    .contactInfo {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bday-sex {
+        flex-direction: column;
+    }
+
+    .content1 {
+        overflow: auto;
+    }
+
+    .sex {
+        margin-top: 1%;
+    }
+}

@@ -1,0 +1,137 @@
+.content1 {
+  flex-direction: row;
+
+  height: 80%;
+}
+
+/* SearchFilter div left */
+
+.searchFilter {
+  flex: 20%;
+  padding: 1%;
+  background-color: #dfdee3;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+input[type="text"] {
+  padding: 4%;
+  font-size: calc(2px + 6 * ((100vw - 320px) / 680));
+  border: 1px solid grey;
+  height: 100%;
+  background: #f1f1f1;
+}
+
+.searchButton {
+  padding: 4%;
+  background: #1b015c;
+  color: white;
+  font-size: 12px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+/* List div right */
+
+.border {
+  display: flex;
+  flex: 80%;
+  border: 3px solid #dfdee3;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.list {
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 9px;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background-color: rgb(108, 108, 108);
+  border-radius: 10px;
+}
+
+.advisor {
+  width: 160px;
+  height: 160px;
+  padding: 1%;
+  margin: 1% 1% 1% 1%;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #dfdee3;
+  border-radius: 10px;
+}
+
+.image {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.advisorImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  width: 50%;
+  height: auto;
+}
+
+.info {
+  flex: 90%;
+
+  font-size: calc(2px + 6 * ((100vw - 320px) / 680));
+}
+
+.info table {
+  margin-top: 10%;
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+
+
+  .content1 {
+    flex-direction: column;
+  }
+
+  /* Top */
+
+  .searchFilter {
+    flex: 10%;
+    padding: 1%;
+    background-color: #dfdee3;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+  }
+
+  /* bottom */
+
+  .border {
+    display: flex;
+    flex: 80%;
+    height: 50%;
+    border: 3px solid #dfdee3;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .list {
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,348 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+        Helvetica, Arial, "Lucida Grande", sans-serif;
+    background-color: rgb(48, 35, 80);
+}
+
+.centerBox {
+    width: 50%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 0px 3px 15px rgb(0 0 0 / 20%);
+}
+
+.leftBox {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #494457;
+    height: 100%;
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftBox .image img {
+    margin-left: 10%;
+    max-width: 80%;
+    height: auto;
+}
+
+.rightBox {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    flex: 50%;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcomeMessage {
+    flex: 30%;
+    width: 100%;
+    height: 100%;
+}
+
+.welcomeForm {
+    width: 100%;
+    height: 100%;
+    flex: 70%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.emailBox {
+    flex: 20%;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.passwordBox {
+    flex: 20%;
+    width: 100%;
+    height: 100%;
+}
+
+strong {
+    color: rgb(218, 1, 1);
+}
+
+.loginButtonBox {
+    flex: 60%;
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+}
+
+h1 {
+    margin-left: 7%;
+    font-size: 4vh;
+    color: #211838;
+}
+
+/* Login form */
+* {
+    box-sizing: border-box;
+}
+
+/* basic stylings ------------------------------------------ */
+body {
+    background: url(https://scotch.io/wp-content/uploads/2014/07/61.jpg);
+}
+.container {
+    font-family: "Roboto";
+    width: 600px;
+    margin: 30px auto 0;
+    display: block;
+    background: #fff;
+    padding: 10px 50px 50px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+h2 small {
+    font-weight: normal;
+    color: #888;
+    display: block;
+}
+.footer {
+    text-align: center;
+}
+.footer a {
+    color: #53b2c8;
+}
+
+/* form starting stylings ------------------------------- */
+.group {
+    position: relative;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264ae;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 90%;
+}
+.bar:before,
+.bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264ae;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.bar:before {
+    left: 50%;
+}
+.bar:after {
+    right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264ae;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264ae;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@keyframes inputHighlighter {
+    from {
+        background: #5264ae;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+/* Button */
+
+.button {
+    flex: 30%;
+    width: 89%;
+    text-align: center;
+    margin: auto;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+button {
+    border-radius: 15px;
+    font-size: 16px;
+    background-color: #3c2c66;
+    padding: 15px;
+    border: none;
+    color: white;
+}
+
+/* Button Hover Animation */
+
+.button {
+    transition: all 0.5s;
+    transition: 0.4s;
+}
+
+/* Button style */
+
+.button span {
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Responsiveness */
+
+
+@media screen and (max-width: 1025px) {
+
+    .box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .leftBox {
+        display: none;
+    }
+    .rightBox {
+        flex: 100%;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    input, .bar {
+        width: 90%;
+    }
+
+    /* Removing Hover Animation */
+    .button span {
+        position: static;
+        transition: 0s;
+    }
+    .button span:after {
+        content: "";
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        transition: 0s
+    }
+    .button:hover span {
+        padding-right: 0px;
+    }
+}

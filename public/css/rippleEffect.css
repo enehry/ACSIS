@@ -1,0 +1,14 @@
+.ripple {
+    background-position: center;
+    transition: background 1s;
+}
+
+.ripple:hover {
+    background: #402e69 radial-gradient(circle, transparent 1%, #402e69 1%) center/15000%;
+}
+
+.ripple:active {
+    background-color: rgb(48, 35, 80);
+    background-size: 100%;
+    transition: background 0s;
+}

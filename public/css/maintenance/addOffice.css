@@ -1,0 +1,57 @@
+.content1 {
+    justify-content: center;
+    display: flex;
+    overflow: auto;
+}
+
+.centerBox {
+    flex: 100%;
+    overflow: auto;
+}
+
+fieldset {
+    border: solid 3px;
+    padding: 1%;
+}
+
+.offices, .categorycontrolno, .desc {
+    margin-top: 1%;
+}
+
+.offices {
+    display: flex;
+    flex-direction: row;
+}
+
+.pri, .sec, .tert, .quarte {
+    flex: auto;
+}
+
+.categorycontrolno {
+    display: flex;
+    flex-direction: row;
+}
+
+.acate, .cno, .cateempty {
+    flex: auto;
+}
+
+@media screen and (max-width: 846px) {
+    .contactInfo {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bday-sex {
+        flex-direction: column;
+    }
+
+    .content1 {
+        overflow: auto;
+    }
+
+    .sex {
+        margin-top: 1%;
+    }
+}

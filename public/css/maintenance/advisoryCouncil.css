@@ -1,0 +1,82 @@
+.content1 {
+    justify-content: center;
+    display: flex;
+    overflow: auto;
+}
+
+.centerBox {
+    flex: 100%;
+    overflow: auto;
+}
+
+fieldset {
+    border: solid 3px;
+    padding: 1%;
+}
+
+.addCate,
+.basicInformation,
+.bday-sex,
+.haddress {
+    margin-top: 1%;
+}
+
+.addCate {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.acPos,
+.acSec,
+.oTitle {
+    flex: auto;
+}
+
+.basicInformation {
+    display: flex;
+    flex-direction: column;
+}
+
+.bday-sex {
+    display: flex;
+    flex-direction: row;
+}
+
+.bday,
+.sex,
+.bsempty {
+    flex: auto;
+}
+
+.haddress {
+    display: flex;
+    flex-direction: row;
+}
+
+.hnumber,
+.brngy,
+.city,
+.province {
+    flex: auto;
+}
+
+@media screen and (max-width: 846px) {
+    .contactInfo {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .bday-sex {
+        flex-direction: column;
+    }
+
+    .content1 {
+        overflow: auto;
+    }
+
+    .sex {
+        margin-top: 1%;
+    }
+}

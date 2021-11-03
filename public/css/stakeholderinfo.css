@@ -1,0 +1,125 @@
+.content1 {
+    overflow: auto;
+}
+.stakeholder-info {
+    display: flex;
+    flex-direction: column;
+}
+
+#addAdvisor {
+    padding: 1%;
+}
+
+.centerBox {
+    flex: 100%;
+}
+
+.duration { 
+    margin-top: 1%;
+}
+
+.acPosition {
+    margin-top: 1%;
+}
+
+.office {
+    display: flex;
+    margin-top: 1%;
+}
+
+.officeName {
+    flex: 50%;
+}
+
+.officeAdd {
+    flex: 50%;
+}
+
+.units {
+    display: flex;
+    margin-top: 1%;
+}
+
+.one, .two {
+    display: flex;
+    flex: 50%;
+}
+.primary, .secondary, .teriary, .quarternary {
+    flex: 50%;
+}
+.submitButton {
+    margin-top: 1%;
+}
+
+
+/* General */
+
+input[type="text"], input[type="number"] {
+    width: 250px;
+    padding: 16px 20px;
+    border-style: solid;
+    background-color: #f1f1f1;
+    border-color: black;
+    border-width: 2px;
+    height: 25px;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+
+input[type="date"] {
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color:#f1f1f1;
+    border-color: black;
+    border-width: 2px;
+    height: 25px;
+}
+
+input[type="submit"] {
+    border-radius: 10px;
+    font: inherit;
+    background-color: #3c2c66;
+    padding: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    margin: 0.5%;
+}
+
+select {
+    width: 250px;
+
+    border-style: solid;
+    background-color: #f1f1f1;
+    border-color: black;
+    border-width: 2px;
+    height: 40px;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+}
+fieldset {
+    border: solid 3px;
+padding: 1%;
+}
+
+@media screen and (max-width: 1024px) {
+    .units {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 583px) {
+
+    .office {
+        flex-direction: column;
+    }
+
+
+    .one, .two {
+        flex-direction: column;
+    }
+}

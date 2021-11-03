@@ -1,0 +1,25 @@
+.content1 {
+    flex-direction: row;
+}
+
+.left {
+    flex: 20%;
+    background-color: red;
+}
+
+.right {
+    flex: 80%;
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.rightUp {
+    flex: 25%;
+    background-color: rgb(255, 248, 248);
+}
+
+.rightDown {
+    flex: 75%;
+}
