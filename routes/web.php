@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdvisoryCouncilController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\TechWrkGrpController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -48,12 +49,10 @@ Route::get('/balancedScorecardManagement', [HomeController::class, 'balancedScor
 Route::get('/createmeeting', [HomeController::class, 'createmeeting'])->name('main.activity.createmeeting');
 
 /* Maintenance */
-
 Route::get('/advisory-council', [AdvisoryCouncilController::class, 'index'])->name('advCon');
-
 Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
+Route::get('/technical-working-group', [TechWrkGrpController::class, 'index'])->name('twg');
 
-Route::get('/technicalWorkingGroup', [HomeController::class, 'technicalWorkingGroup'])->name('main.technicalWorkingGroup');
 Route::get('/policeStrategyManagementUnit', [HomeController::class, 'policeStrategyManagementUnit'])->name('main.policeStrategyManagementUnit');
 Route::get('/superadminMaintenance', [HomeController::class, 'superadminMaintenance'])->name('main.superadminMaintenance');
 Route::get('/addOffice', [HomeController::class, 'addOffice'])->name('main.addOffice');

@@ -14,6 +14,7 @@ class TechWrkGrpController extends Controller
   public function index()
   {
     //
+    return view('tech_wrk_grp.index');
   }
 
   /**
