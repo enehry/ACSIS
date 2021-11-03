@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvisoryCouncilController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
@@ -48,8 +49,10 @@ Route::get('/createmeeting', [HomeController::class, 'createmeeting'])->name('ma
 
 /* Maintenance */
 
+Route::get('/advisory-council', [AdvisoryCouncilController::class, 'index'])->name('advCon');
+
 Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
-Route::get('/advisoryCouncil', [HomeController::class, 'advisoryCouncil'])->name('main.advisoryCouncil');
+
 Route::get('/technicalWorkingGroup', [HomeController::class, 'technicalWorkingGroup'])->name('main.technicalWorkingGroup');
 Route::get('/policeStrategyManagementUnit', [HomeController::class, 'policeStrategyManagementUnit'])->name('main.policeStrategyManagementUnit');
 Route::get('/superadminMaintenance', [HomeController::class, 'superadminMaintenance'])->name('main.superadminMaintenance');
