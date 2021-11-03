@@ -64,7 +64,7 @@
                 <input type="text" required name="how">
                 <span class="Name">How</span><span class="required">*</span><br>
                 <span class="Name">Description</span><span class="required">*</span><br>
-                <input type="text" name="description">
+                <input type="text" name="description"><br>
                 <span class="Name">User ID</span><span class="required">*</span><br>
                 <input type="number" name="user_id" placeholder="temp sample user_id">
                 {{-- <input type="text" name="description"> --}}
@@ -91,23 +91,23 @@
 <!-- @extends('layouts.app')
 
 @section('content')
-                    <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">{{ __('Dashboard') }}</div>
+                        <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">{{ __('Dashboard') }}</div>
 
-                                <div class="card-body">
-                                    @if (session('status'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('status') }}
+                                    <div class="card-body">
+                                        @if (session('status'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('status') }}
+                                        </div>
+                                        @endif
+
+                                        {{ __('You are logged in!') }}
                                     </div>
-                                    @endif
-
-                                    {{ __('You are logged in!') }}
                                 </div>
                             </div>
                         </div>
-                    </div>
-                                                                                                                        </div>
+                                                                                                                            </div>
 @endsection -->
