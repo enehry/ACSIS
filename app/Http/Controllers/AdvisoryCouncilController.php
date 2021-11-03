@@ -14,7 +14,7 @@ class AdvisoryCouncilController extends Controller
     public function index()
     {
         //
-        return 'edited';
+        return 'Request PULL';
     }
 
     /**
