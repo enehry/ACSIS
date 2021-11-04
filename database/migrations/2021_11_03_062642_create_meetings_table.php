@@ -22,7 +22,7 @@ class CreateMeetingsTable extends Migration
       $table->string('why');
       $table->string('description');
       $table->string('how');
-      $table->integer('user_id');
+      $table->integer('user_id')->nullable();
       $table->timestamps();
     });
   }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdvisoryCouncilController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\TechWrkGrpController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -43,10 +44,11 @@ Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
 Route::get('/editacc', [HomeController::class, 'editacc'])->name('main.editacc');
 
 /* Activity */
+Route::resource('/create-meetings', MeetingController::class);
 
 Route::get('/activity', [HomeController::class, 'activity'])->name('main.activity.activity');
 Route::get('/balancedScorecardManagement', [HomeController::class, 'balancedScorecardManagement'])->name('main.activity.balancedScorecardManagement');
-Route::get('/createmeeting', [HomeController::class, 'createmeeting'])->name('main.activity.createmeeting');
+
 
 /* Maintenance */
 Route::get('/advisory-council', [AdvisoryCouncilController::class, 'index'])->name('advCon');

@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../css/default.css">
   <link rel="stylesheet" href="../css/addadvisor.css">
   <link rel="stylesheet" href="../css/loading.css">
+  <link rel="stylesheet" href="../css/createmeeting.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -34,7 +35,6 @@
 </head>
 
 <body>
-
   <!-- Authentication Links -->
   @guest
   @if (Route::has('login'))
@@ -51,16 +51,16 @@
   @endif
   @else
   <!--     <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                </div>
-            </li> -->
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    </div>
+                                </li> -->
   @endguest
-
   <div id="app">
     <div class="wrapper">
       <nav>
@@ -90,7 +90,7 @@
               <label for="show-services">Activity</label>
               <ul>
                 <li><a href="/activity">Activity</a></li>
-                <li><a href="/createmeeting">Create Meeting</a></li>
+                <li><a href="/create-meetings">Create Meeting</a></li>
                 <li><a href="/balancedScorecardManagement">Balanced Scorecard Management</a></li>
               </ul>
             </li>
@@ -121,6 +121,7 @@
                 </li>
               </ul>
             </li>
+
             @else
             <li>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
