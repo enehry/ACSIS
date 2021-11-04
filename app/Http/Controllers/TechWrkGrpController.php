@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TechWrkGrpController extends Controller
@@ -14,8 +15,13 @@ class TechWrkGrpController extends Controller
   public function index()
   {
     //
-    return view('tech_wrk_grp.index');
+    $stakeholders = User::where('role', '=', "stakeholder")->get();
+
+
+    return view('tech_wrk_grp.index', compact('stakeholders'));
   }
+
+
 
   /**
    * Show the form for creating a new resource.
@@ -25,7 +31,7 @@ class TechWrkGrpController extends Controller
   public function create()
   {
     //
-    return view('main.maintenance.technicalWorkingGroup');
+    return view('tech_wrk_grp.create');
   }
 
   /**
@@ -37,6 +43,23 @@ class TechWrkGrpController extends Controller
   public function store(Request $request)
   {
     //
+    $request->validate([
+      'email' => 'email|required',
+      'role' => 'required',
+      'position' => 'required',
+      'sector' => 'required',
+      'lname' =>  'required|max:100',
+      'fname' =>  'required|max:100',
+      'sex' => 'required',
+      'password' => 'required|min:6|confirmed',
+      'street' => 'required',
+      'brgy' => 'required',
+      'city' => 'required',
+      'province' => 'required',
+      'bday' => 'required',
+    ]);
+
+    return redirect(route('twg.create'))->withInput();;
   }
 
   /**

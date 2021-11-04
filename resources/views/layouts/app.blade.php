@@ -10,27 +10,35 @@
 
   <title>{{ config('app.name', 'Laravel') }}</title>
 
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
-
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
   <link rel="stylesheet" href="../css/default.css">
-  <link rel="stylesheet" href="../css/addadvisor.css">
   <link rel="stylesheet" href="../css/loading.css">
+  <link rel="stylesheet" href="../css/maintenance/advisoryCouncil.css">
   <link rel="stylesheet" href="../css/createmeeting.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <!-- printing datables -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/datatables.min.js"></script>
+  <!-- ajax datables jquery -->
 
 
-  <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-  <!-- Chartjs -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .is-invalid {
+      border-color: red !important;
+    }
+  </style>
 
 </head>
 
@@ -47,7 +55,6 @@
   <li class="nav-item">
     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
   </li>
-
   @endif
   @else
   <!--     <li class="nav-item dropdown">
@@ -71,7 +78,7 @@
           <div class="title"><a href="#">
               <h3>
                 AC-SIS STAKEHOLDER<br />
-                INFORMAITON SYSTEM
+                INFORMATION SYSTEM
             </a>
             </h3>
           </div>
@@ -155,5 +162,6 @@
   </div>
 
 </body>
+
 
 </html>
