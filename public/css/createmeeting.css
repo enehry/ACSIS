@@ -20,7 +20,8 @@
 }
 
 .fivews {
-    flex: 50%;
+    background-color: whitesmoke;
+    /* flex: 50%; */
     padding: 5%;
 }
 

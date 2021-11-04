@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Meeting extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'who',
+        'what',
+        'where',
+        'when',
+        'how',
+        'why',
+        'description',
+        'user_id',
+    ];
 }
