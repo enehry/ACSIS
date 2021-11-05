@@ -135,10 +135,10 @@ class MeetingController extends Controller
      * @param  \App\Models\Meeting  $meeting
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Meeting $meeting)
+    public function destroy($id)
     {
         //
-        $meeting->delete();
+        Meeting::find($id)->delete();
         return redirect()->back()->with('success', 'meeting successfully deleted');
     }
 }
