@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class TechWrkGrp extends Model
 {
-    use HasFactory;
+  use HasFactory;
+  protected $fillable = [
+    'position',
+    'sector',
+    'user_id',
+    'other_title',
+  ];
+
+  public function user()
+  {
+    return $this->belongsTo(User::class, 'user_id');
+  }
 }

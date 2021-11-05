@@ -53,7 +53,14 @@ Route::get('/balancedScorecardManagement', [HomeController::class, 'balancedScor
 /* Maintenance */
 Route::get('/advisory-council', [AdvisoryCouncilController::class, 'index'])->name('advCon');
 Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
+
 Route::get('/technical-working-group', [TechWrkGrpController::class, 'index'])->name('twg');
+Route::get('/technical-working-group/create', [TechWrkGrpController::class, 'create'])->name('twg.create');
+Route::post('/technical-working-group/store', [TechWrkGrpController::class, 'store'])->name('twg.store');
+Route::delete('/technical-working-group/delete/{id}', [TechWrkGrpController::class, 'destroy'])->name('twg.delete');
+Route::get('/technical-working-group/edit/{id}', [TechWrkGrpController::class, 'edit'])->name('twg.edit');
+Route::put('/technical-working-group/update/{id}', [TechWrkGrpController::class, 'update'])->name('twg.update');
+
 
 Route::get('/policeStrategyManagementUnit', [HomeController::class, 'policeStrategyManagementUnit'])->name('main.policeStrategyManagementUnit');
 Route::get('/superadminMaintenance', [HomeController::class, 'superadminMaintenance'])->name('main.superadminMaintenance');

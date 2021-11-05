@@ -72,18 +72,6 @@ fieldset {
 
 /* General */
 
-input[type="text"], input[type="number"] {
-    width: 250px;
-    padding: 16px 20px;
-    border-style: solid;
-    background-color: #f1f1f1;
-    border-color: black;
-    border-width: 2px;
-    height: 25px;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-}
-
 input[type="date"] {
     padding: 16px 20px;
     border: none;
@@ -93,16 +81,6 @@ input[type="date"] {
     border-width: 2px;
     height: 25px;
     margin-top: 1%;
-}
-
-input[type="submit"] {
-    border-radius: 10px;
-    font: inherit;
-    background-color: #3c2c66;
-    padding: 10px;
-    border: none;
-    color: white;
-    cursor: pointer;
 }
 
 @media screen and (max-width: 846px) {

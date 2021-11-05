@@ -54,7 +54,7 @@
 
 /* General */
 
-input[type="text"], input[type="number"] {
+input[type="text"], input[type="number"], input[type="password"] {
     width: 250px;
     padding: 16px 20px;
     border-style: solid;

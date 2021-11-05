@@ -18,7 +18,7 @@ class User extends Authenticatable //implements MustVerifyEmail
    * @var string[]
    */
   protected $fillable = [
-    'name',
+    'fname',
     'email',
     'password',
   ];
@@ -47,5 +47,10 @@ class User extends Authenticatable //implements MustVerifyEmail
     User::factory()
       ->count(50)
       ->create();
+  }
+
+  public function tchWrkGrp()
+  {
+    return $this->hasOne(TechWrkGrp::class, 'user_id');
   }
 }

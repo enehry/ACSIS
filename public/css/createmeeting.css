@@ -64,18 +64,6 @@ button {
 
 /* General */
 
-input[type="text"], input[type="number"] {
-    width: 250px;
-    padding: 16px 20px;
-    border-style: solid;
-    background-color: #f1f1f1;
-    border-color: black;
-    border-width: 2px;
-    height: 25px;
-    margin-top: 1%;
-    margin-bottom: 10%;
-}
-
 textarea {
     margin-top: 1%;
     margin-bottom: 10%;
