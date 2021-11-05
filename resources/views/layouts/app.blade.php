@@ -39,16 +39,11 @@
     .is-invalid {
       border-color: red !important;
     }
-
-    .navbar-dark {
-      background-color: red;
-    }
   </style>
 
 </head>
 
 <body>
-
   <div id="app">
 
     <nav style="background-color: #211838;" class="navbar navbar-dark navbar-expand-lg">
