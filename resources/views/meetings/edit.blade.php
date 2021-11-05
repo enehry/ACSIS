@@ -13,11 +13,11 @@
                             <tr>
                                 <th>What</th>
                                 <th>When</th>
-                                {{-- <th>Where</th> --}}
+                                <th>Where</th>
                                 <th>Who</th>
-                                {{-- <th>Why</th> --}}
-                                {{-- <th>How</th> --}}
-                                {{-- <th>Description</th> --}}
+                                <th>Why</th>
+                                <th>How</th>
+                                <th>Description</th>
                                 <th colspan="3"> Actions </th>
                             </tr>
                         </thead>
@@ -26,11 +26,11 @@
                                 <tr>
                                     <td>{{ $meeting->what }}</td>
                                     <td>{{ $meeting->when }}</td>
-                                    {{-- <td>{{ $meeting->where }}</td> --}}
+                                    <td>{{ $meeting->where }}</td>
                                     <td>{{ $meeting->who }}</td>
-                                    {{-- <td>{{ $meeting->why }}</td> --}}
-                                    {{-- <td>{{ $meeting->how }}</td> --}}
-                                    {{-- <td>{{ $meeting->description }}</td> --}}
+                                    <td>{{ $meeting->why }}</td>
+                                    <td>{{ $meeting->how }}</td>
+                                    <td>{{ $meeting->description }}</td>
                                     <td><a href="/create-meetings/{{ $meeting->id }}" class="btn btn-info btn-sm">View</a>
                                     </td>
                                     <td><a href="/create-meetings/{{ $meeting->id }}/edit"
