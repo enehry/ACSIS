@@ -62,11 +62,28 @@
 
 @section('content')
 
+
+    <div class="row">
+        <div class="col-md-12">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+
+    </div>
+
+
     <div class="row">
         <div class="col-md-6">
             @if (session()->has('success'))
                 <div class="alert alert-success">
-                    <i class="fas fa-trash mr-2"></i>
+                    <i class="fas fa-check-circle mr-2"></i>
                     {{ session()->get('success') }}
                 </div>
             @endif
@@ -77,37 +94,101 @@
                 </div>
             @endif
         </div>
-        <div class="col-md-6 mb-2">
-            <a href="/technical-working-group/create">
-                <button class="btn btn-primary float-right">Create New</button>
-            </a>
+
+        <div class="col-md-12 mb-2">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Create New Meeting
+            </button>
         </div>
-        <!-- Button trigger modal -->
-        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Launch demo modal
-        </button> --}}
 
         <!-- Modal -->
-        {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">New Meeting</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <h2>Meeting Information</h2>
+                        <fieldset class="addAdvisor">
+
+                            <div class="content1">
+                                <form method="POST" action="{{ route('create-meetings.store') }}">
+                                    @csrf
+
+                                    @if (session()->has('message'))
+                                        <div class="alert alert-success">
+                                            <i class="fas fa-check-circle mr-2"></i>
+                                            {{ session()->get('message') }}
+                                            {{-- <a class="float-right" href="/technical-working-group">Back to Meetings List</a> --}}
+                                        </div>
+                                    @endif
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            {{-- <div class="col-md-4"><input class="@error('password') is-invalid @enderror"
+                                                type="password" placeholder="password" name="password" required
+                                                value="{{ old('password') }}"></div> --}}
+                                            <div class="form-group">
+                                                <br />What<span class="required">*</span><br />
+                                                <input type="text" class="form-control" name="what">
+                                            </div>
+                                            <div class="form-group">
+                                                <br />Where<span class="required">*</span><br />
+                                                <input type="text" class="form-control" name="where">
+                                            </div>
+                                            <div class="form-group">
+                                                <br />When<span class="required">*</span><br />
+                                                <input type="date" class="form-control" name="when">
+                                            </div>
+                                            <div class="form-group">
+                                                <br />Who<span class="required">*</span><br />
+                                                <input type="text" class="form-control" name="who">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <br />Why<span class="required">*</span><br />
+                                                <input type="text" class="form-control" name="why">
+                                            </div>
+                                            <div class="form-group">
+                                                <br />How<span class="required">*</span><br />
+                                                <input type="text" class="form-control" name="how">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <br />Description<span class="required">*</span><br />
+                                                <input type="text" class="form-control" name="description"
+                                                    style="height: 300px">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                            </div>
+                        </fieldset>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                        {{-- <button type="submit" class="button pointer ripple" data-dismiss="modal"><span>Create
+                                                    Meeting</span></button> --}}
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
                     </div>
+                    </form>
                 </div>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     <table class="table table-striped table-bordered dt-responsive" style="width:100%" id="actMeetings">
@@ -140,9 +221,9 @@
                     <td>{{ $meeting->how }}</td>
                     <td>{{ $meeting->description }}</td>
                     <td>
-                        <a href="/create-meetings/edit/{{ $meeting->id }}" class="btn btn-primary"><i
+                        <a href="/create-meetings/{{ $meeting->id }}/edit" class="btn btn-primary"><i
                                 class="fas fa-pencil-alt"></i></a>
-                        <form method="POST" action="/create-meetings/delete/{{ $meeting->id }}">
+                        <form method="POST" action="/create-meetings/{{ $meeting->id }}">
                             @csrf
                             {{ method_field('DELETE') }}
                             <div class="form-group">

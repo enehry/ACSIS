@@ -8,46 +8,82 @@
                     <div class="card-header">Meeting Details
 
                     </div>
-                    <table id="mytable" class="display">
-                        <thead>
-                            <tr>
-                                <th>What</th>
-                                <th>When</th>
-                                <th>Where</th>
-                                <th>Who</th>
-                                <th>Why</th>
-                                <th>How</th>
-                                <th>Description</th>
-                                <th colspan="3"> Actions </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($meetings as $meeting)
-                                <tr>
-                                    <td>{{ $meeting->what }}</td>
-                                    <td>{{ $meeting->when }}</td>
-                                    <td>{{ $meeting->where }}</td>
-                                    <td>{{ $meeting->who }}</td>
-                                    <td>{{ $meeting->why }}</td>
-                                    <td>{{ $meeting->how }}</td>
-                                    <td>{{ $meeting->description }}</td>
-                                    <td><a href="/create-meetings/{{ $meeting->id }}" class="btn btn-info btn-sm">View</a>
-                                    </td>
-                                    <td><a href="/create-meetings/{{ $meeting->id }}/edit"
-                                            class="btn btn-warning btn-sm">Edit</a></td>
-                                    <td>
-                                        <form action="{{ route('create-meetings.destroy', $meeting->id) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div class="content1">
+                        <form method="POST" action="{{ route('create-meetings.update', $meeting->id) }}">
+                            @csrf
+                            {{ method_field('PUT') }}
+
+                            @if (session()->has('message'))
+                                <div class="alert alert-success">
+                                    <i class="fas fa-check-circle mr-2"></i>
+                                    {{ session()->get('message') }}
+                                    {{-- <a class="float-right" href="/technical-working-group">Back to Meetings List</a> --}}
+                                </div>
+                            @endif
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {{-- <div class="col-md-4"><input class="@error('password') is-invalid @enderror"
+                                        type="password" placeholder="password" name="password" required
+                                        value="{{ old('password') }}"></div> --}}
+                                    <div class="form-group">
+                                        <br />What<span class="required">*</span><br />
+                                        <input type="text" class="form-control" name="what"
+                                            value="{{ $meeting->what }}">
+                                    </div>
+                                    <div class=" form-group">
+                                        <br />Where<span class="required">*</span><br />
+                                        <input type="text" class="form-control" name="where"
+                                            value="{{ $meeting->where }}">
+                                    </div>
+                                    <div class=" form-group">
+                                        <br />When<span class="required">*</span><br />
+                                        <input type="date" class="form-control" name="when"
+                                            value="{{ $meeting->when }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <br />Who<span class="required">*</span><br />
+                                        <input type="text" class="form-control" name="who" value="{{ $meeting->who }}">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <br />Why<span class="required">*</span><br />
+                                        <input type="text" class="form-control" name="why" value="{{ $meeting->why }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <br />How<span class="required">*</span><br />
+                                        <input type="text" class="form-control" name="how" value="{{ $meeting->how }}">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <br />Description<span class="required">*</span><br />
+                                        <input type="text" class="form-control" name="description" style="height: 300px"
+                                            value="{{ $meeting->description }}">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                    </div>
+                    </fieldset>
+
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Close</button>
+                    {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                    {{-- <button type="submit" class="button pointer ripple" data-dismiss="modal"><span>Create
+                                            Meeting</span></button> --}}
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+                </div>
+                </form>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 @endsection
