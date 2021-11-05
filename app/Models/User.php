@@ -53,4 +53,9 @@ class User extends Authenticatable //implements MustVerifyEmail
   {
     return $this->hasOne(TechWrkGrp::class, 'user_id');
   }
+
+  public function psmu()
+  {
+    return $this->hasOne(PoliceStratMngUnit::class, 'user_id');
+  }
 }

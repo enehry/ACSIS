@@ -2,7 +2,7 @@
 @section('content')
 <div class="workSpace">
   <div class="title1">
-    <h3>Advisory Council</h3>
+    <h3>Technical Working Group / EDIT</h3>
   </div>
 
   <div class="content1">

@@ -2,14 +2,13 @@
 @section('content')
 <div class="workSpace">
   <div class="title1">
-    <h3>Technical Working Group / Create New</h3>
+    <h3>Police Strategy Management Unit / Create New</h3>
   </div>
 
   <div class="content1">
-
     <div class="centerBox">
 
-      <form method="post" action="{{ route('twg.store') }}">
+      <form method="post" action="{{ route('psmu.store') }}">
         @csrf
         <fieldset id="addAdvisor">
           <legend>
@@ -32,7 +31,7 @@
           <div class="alert alert-success">
             <i class="fas fa-check-circle mr-2"></i>
             {{ session()->get('message') }}
-            <a class="float-right" href="/technical-working-group">Back to Technical Working Group List</a>
+            <a class="float-right" href="/psmu">Back to PSMU List</a>
           </div>
           @endif
 
@@ -42,7 +41,7 @@
           Add Category<span class="required">*</span><br />
           <div class="addCate">
             <div class="acPos">
-              <span class="Name">TWG Position</span><span class="required">*</span><br>
+              <span class="Name">PSMU Position</span><span class="required">*</span><br>
               <select class="@error('position') is-invalid @enderror" name="position" value="{{ old('position') }}">
                 <option disabled selected>Select your office:</option>
                 <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>
@@ -53,7 +52,7 @@
             </div>
 
             <div class="acSec">
-              <span class="Name">TWG Sector</span><span class="required">*</span><br>
+              <span class="Name">PSMU Sector</span><span class="required">*</span><br>
               <select class="@error('sector') is-invalid @enderror" name="sector" value="{{ old('sector') }}">
                 <option disabled selected>Select your office:</option>
                 <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>

@@ -14,7 +14,7 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="/css/default.css"> -->
+  <link rel="stylesheet" href="/css/inputs.css">
   <link rel="stylesheet" href="/css/loading.css">
   <link rel="stylesheet" href="/css/maintenance/advisoryCouncil.css">
   <link rel="stylesheet" href="/css/createmeeting.css">
@@ -71,7 +71,9 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/activity">Activity</a>
+              @if(Auth::user()->role != 'stakeholder')
               <a class="dropdown-item" href="/create-meetings">Create Meeting</a>
+              @endif
               <a class="dropdown-item" href="/balancedScorecardManagement">Balanced Scorecard Management</a>
             </div>
           </li>
@@ -80,15 +82,16 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img style="height: 30px;" class="rounded-circle border border-light" src="https://avatars.dicebear.com/api/initials/nehry.svg?background=%23211838">
+              <img style="height: 30px;" class="rounded-circle border border-light" src="https://avatars.dicebear.com/api/initials/{{Auth::user()->fname}}.svg?background=%23211838">
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/profile">Profile</a>
               @if (Auth::user()->role != 'stakeholder')
               <a class="dropdown-item" href="/admin">Admin</a>
               @if (Auth::user()->role != 'admin')
               <a class="dropdown-item" href="/advisory-council">Advisory Council</a>
               <a class="dropdown-item" href="/technical-working-group">Technical Working Group</a>
-              <a class="dropdown-item" href="/policeStrategyManagementUnit">Police Strategy Management Unit</a>
+              <a class="dropdown-item" href="/psmu">Police Strategy Management Unit</a>
               <a class="dropdown-item" href="/superadminMaintenance">Superadmin Maintenance</a>
               @endif
               <div class="dropdown-divider"></div>
@@ -104,15 +107,15 @@
         </li>
         @else
         <div class="dropdown-divider"></div>
-        <li>
-          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+
+        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-          </form>
-        </li>
+          {{ __('Logout') }}
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+          @csrf
+        </form>
+
         @endif
       </div>
       </li>

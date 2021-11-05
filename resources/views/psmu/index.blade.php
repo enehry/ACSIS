@@ -1,6 +1,7 @@
+@extends('layouts.app')
 @section('content')
-<h3>Technical Working Group</h3>
-<div class="row">
+<h3>Police Strategy Management Unit</h3>
+<div class="row mt-4">
   <div class="col-md-6">
     @if(session()->has('success'))
     <div class="alert alert-success">
@@ -16,7 +17,7 @@
     @endif
   </div>
   <div class="col-md-6 mb-2">
-    <a href="/technical-working-group/create">
+    <a href="{{ route('psmu.create') }}">
       <button class="btn btn-primary float-right">Create New</button>
     </a>
   </div>
@@ -47,11 +48,11 @@
       <td>{{ $stk->position }}</td>
       <td>{{ $stk->sector }}</td>
       <td>
-        <a href="/technical-working-group/edit/{{$stk->id}}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
-        <form method="POST" action="/technical-working-group/delete/{{$stk->id}}">
+        <a href="{{ route('psmu.edit', $stk->id ) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        <form method="POST" action="{{ route('psmu.destroy', $stk->id ) }}">
           @csrf
           {{ method_field('DELETE') }}
-          <div class="form-group">
+          <div class=" form-group">
             <button type="submit" class="btn btn-danger delete-user">
               <i class="fas fa-trash"></i>
             </button>
@@ -91,30 +92,3 @@
   });
 </script>
 @endsection
-
-
-
-
-<!-- @extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection -->
