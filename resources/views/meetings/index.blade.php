@@ -61,29 +61,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-    <div class="row">
-        <div class="col-md-12">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
-
-    </div>
-
-
     <div class="row">
         <div class="col-md-6">
             @if (session()->has('success'))
                 <div class="alert alert-success">
-                    <i class="fas fa-check-circle mr-2"></i>
+                    <i class="fas fa-trash mr-2"></i>
                     {{ session()->get('success') }}
                 </div>
             @endif
@@ -94,14 +76,14 @@
                 </div>
             @endif
         </div>
-
-        <div class="col-md-12 mb-2">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <div class="col-md-6 mb-2">
+            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
                 Create New Meeting
             </button>
-        </div>
 
+        </div>
+    </div>
+    <div class="row">
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -125,14 +107,10 @@
                                         <div class="alert alert-success">
                                             <i class="fas fa-check-circle mr-2"></i>
                                             {{ session()->get('message') }}
-                                            {{-- <a class="float-right" href="/technical-working-group">Back to Meetings List</a> --}}
                                         </div>
                                     @endif
                                     <div class="row">
                                         <div class="col-md-4">
-                                            {{-- <div class="col-md-4"><input class="@error('password') is-invalid @enderror"
-                                                type="password" placeholder="password" name="password" required
-                                                value="{{ old('password') }}"></div> --}}
                                             <div class="form-group">
                                                 <br />What<span class="required">*</span><br />
                                                 <input type="text" class="form-control" name="what">
@@ -178,9 +156,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-                        {{-- <button type="submit" class="button pointer ripple" data-dismiss="modal"><span>Create
-                                                    Meeting</span></button> --}}
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </div>
@@ -194,7 +169,7 @@
     <table class="table table-striped table-bordered dt-responsive" style="width:100%" id="actMeetings">
         <thead>
             <tr>
-                {{-- <th scope="col">#</th> --}}
+                <th scope="col">#</th>
                 <th scope="col">What</th>
                 <th scope="col">When</th>
                 <th scope="col">Where</th>
@@ -202,17 +177,13 @@
                 <th scope="col">Why</th>
                 <th scope="col">How</th>
                 <th scope="col">Description</th>
-                {{-- <th scope="col">Address</th>
-                <th scope="col">bday</th>
-                <th scope="col">position</th>
-                <th scope="col">sector</th>
-                <th scope="col">Actions</th> --}}
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($meetings as $meeting)
                 <tr>
-                    {{-- <th scope="row"> {{ $meeting->id }}</th> --}}
+                    <th scope="row"> {{ $meeting->id }}</th>
                     <td>{{ $meeting->what }}</td>
                     <td>{{ $meeting->where }}</td>
                     <td>{{ $meeting->when }}</td>
