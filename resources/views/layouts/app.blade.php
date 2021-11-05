@@ -14,10 +14,10 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-  <link rel="stylesheet" href="../css/default.css">
-  <link rel="stylesheet" href="../css/loading.css">
-  <link rel="stylesheet" href="../css/maintenance/advisoryCouncil.css">
-  <link rel="stylesheet" href="../css/createmeeting.css">
+  <link rel="stylesheet" href="/css/default.css">
+  <link rel="stylesheet" href="/css/loading.css">
+  <link rel="stylesheet" href="/css/maintenance/advisoryCouncil.css">
+  <link rel="stylesheet" href="/css/createmeeting.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
@@ -74,7 +74,7 @@
         <input type="checkbox" id="show-menu">
         <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
         <div class="content">
-          <div class="logo"><a href="#"><img src="../images/patrolplan.png"></a></div>
+          <div class="logo"><a href="#"><img src="/images/patrolplan.png"></a></div>
           <div class="title"><a href="#">
               <h3>
                 AC-SIS STAKEHOLDER<br />
@@ -143,7 +143,7 @@
             @endif
             <div class="person">
               <a href="/editAccount">
-                <img class="personLogo" src="../images/personLogo.png" />
+                <img class="personLogo" src="/images/personLogo.png" />
               </a>
             </div>
           </ul>

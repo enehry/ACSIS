@@ -1,10 +1,24 @@
 @section('content')
+
 <div class="row">
-  <div class="col-md-12 mb-2">
+  <div class="col-md-6">
+    @if(session()->has('success'))
+    <div class="alert alert-success">
+      <i class="fas fa-trash mr-2"></i>
+      {{ session()->get('success') }}
+    </div>
+    @endif
+    @if(session()->has('error'))
+    <div class="alert alert-success">
+      <i class="fas fa-trash mr-2"></i>
+      {{ session()->get('error') }}
+    </div>
+    @endif
+  </div>
+  <div class="col-md-6 mb-2">
     <a href="/technical-working-group/create">
       <button class="btn btn-primary float-right">Create New</button>
     </a>
-
   </div>
 </div>
 <table class="table table-striped table-bordered dt-responsive" style="width:100%" id="tchWrkGrpStakeHolder">
@@ -16,6 +30,8 @@
       <th scope="col">Email</th>
       <th scope="col">Address</th>
       <th scope="col">bday</th>
+      <th scope="col">position</th>
+      <th scope="col">sector</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -28,7 +44,20 @@
       <td>{{ $stk->email }}</td>
       <td>{{ $stk->street." ".$stk->brgy." ".$stk->city." ".$stk->province }}</td>
       <td>{{ $stk->bday }}</td>
-      <td></td>
+      <td>{{ $stk->position }}</td>
+      <td>{{ $stk->sector }}</td>
+      <td>
+        <a href="/technical-working-group/edit/{{$stk->id}}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        <form method="POST" action="/technical-working-group/delete/{{$stk->id}}">
+          @csrf
+          {{ method_field('DELETE') }}
+          <div class="form-group">
+            <button type="submit" class="btn btn-danger delete-user">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </form>
+      </td>
     </tr>
     @endforeach
   </tbody>
