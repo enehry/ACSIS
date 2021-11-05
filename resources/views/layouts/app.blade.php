@@ -14,7 +14,7 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-  <link rel="stylesheet" href="/css/inputs.css">
+  <!-- <link rel="stylesheet" href="/css/default.css"> -->
   <link rel="stylesheet" href="/css/loading.css">
   <link rel="stylesheet" href="/css/maintenance/advisoryCouncil.css">
   <link rel="stylesheet" href="/css/createmeeting.css">
@@ -31,13 +31,18 @@
   <!-- printing datables -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/datatables.min.js">
+  </script>
   <!-- ajax datables jquery -->
 
 
   <style>
     .is-invalid {
       border-color: red !important;
+    }
+
+    .modal-dialog {
+      width: 900px;
     }
   </style>
 
@@ -128,9 +133,7 @@
     <div class="container">
       @yield('content')
     </div>
-  </main>
-  </div>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 
