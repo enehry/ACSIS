@@ -44,6 +44,10 @@
     .modal-dialog {
       width: 900px;
     }
+
+    #upload {
+      opacity: 0;
+    }
   </style>
 
 </head>
@@ -65,7 +69,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/home">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/">Advisory List</a>
@@ -97,7 +101,6 @@
               <a class="dropdown-item" href="/advisory-council">Advisory Council</a>
               <a class="dropdown-item" href="/technical-working-group">Technical Working Group</a>
               <a class="dropdown-item" href="/psmu">Police Strategy Management Unit</a>
-              <a class="dropdown-item" href="/superadminMaintenance">Superadmin Maintenance</a>
               @endif
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

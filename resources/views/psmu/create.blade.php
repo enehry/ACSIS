@@ -14,7 +14,7 @@
           <legend>
             <h2>Profile Information</h2>
           </legend>
-          <input type="text" hidden name="role" value="stakeholder">
+
           <!-- /resources/views/post/create.blade.php -->
           <!-- Create Post Form -->
           @if ($errors->any())
@@ -44,21 +44,36 @@
               <span class="Name">PSMU Position</span><span class="required">*</span><br>
               <select class="@error('position') is-invalid @enderror" name="position" value="{{ old('position') }}">
                 <option disabled selected>Select your office:</option>
-                <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>
-                <option value="National Administrative Support Unit">National Administrative Support Unit</option>
-                <option value="National Operations Support Unit">National Operations Support Unit</option>
-                <option value="Police Regional Office">Police Regional Office</option>
+                <option value="Chief">Chief</option>
+                <option value="Assistant Chief">Assistant Chief</option>
+                <option value="Action PNCO">Action PNCO</option>
+                <option value="Action PCO">Action PCO</option>
+                <option value="Action NUP">Action NUP</option>
               </select>
             </div>
 
             <div class="acSec">
-              <span class="Name">PSMU Sector</span><span class="required">*</span><br>
+              <span class="Name">PSMU Section</span><span class="required">*</span><br>
               <select class="@error('sector') is-invalid @enderror" name="sector" value="{{ old('sector') }}">
                 <option disabled selected>Select your office:</option>
-                <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>
-                <option value="National Administrative Support Unit">National Administrative Support Unit</option>
-                <option value="National Operations Support Unit">National Operations Support Unit</option>
-                <option value="Police Regional Office">Police Regional Office</option>
+                <option value="Police Strategy Management Unit">Police Strategy Management Unit</option>
+                <option value="Scorecard Management and Alignment Section">Scorecard Management and Alignment Section</option>
+                <option value="Strategy Review Section">Strategy Review Section
+                </option>
+                <option value="Planning and Initiative Management Section">Planning and Initiative Management Section
+                </option>
+                <option value="Monitoring and Evaluation Section">Monitoring and Evaluation Section
+                </option>
+                <option value="Strategy Communication and Alignment Section">Strategy Communication and Alignment Section
+                </option>
+                <option value="Change Management and Best Practices Section">Change Management and Best Practices Section
+                </option>
+                <option value="Monitoring and Evaluation, Change Management and Best Practices Section">
+                  Monitoring and Evaluation, Change Management and Best Practices Section
+                </option>
+                <option value="Planning, Alignment and Strategy Communication Section">
+                  Planning, Alignment and Strategy Communication Section
+                </option>
               </select>
             </div>
 
@@ -71,10 +86,19 @@
 
           <h2>Create Account</h2>
           <div class="row">
-            <div class="col-md-4"><input class="@error('email') is-invalid @enderror" type="text" placeholder="Email" name="email" required value="{{ old('email') }}">
+            <div class="col-md-3"><input class="@error('email') is-invalid @enderror" type="text" placeholder="Email" name="email" required value="{{ old('email') }}">
             </div>
-            <div class="col-md-4"><input class="@error('password') is-invalid @enderror" type="password" placeholder="password" name="password" required value="{{ old('password') }}"></div>
-            <div class="col-md-4"><input type="password" placeholder="retype password" name="password_confirmation" required value="{{ old('password_confirmation') }}"></div>
+            <div class="col-md-3">
+              <select class="@error('role') is-invalid @enderror" name="role" value="{{ old('role') }}">
+                <option disabled selected>Select role:</option>
+                <option value="stakeholder">stakeholder</option>
+                <option value="admin">admin</option>
+              </select>
+            </div>
+            <div class="col-md-3"><input class="@error('password') is-invalid @enderror" type="password" placeholder="password" name="password" required value="{{ old('password') }}"></div>
+            <div class="col-md-3"><input type="password" placeholder="retype password" name="password_confirmation" required value="{{ old('password_confirmation') }}"></div>
+
+
           </div>
           <h2>Basic Information</h2>
           <hr />

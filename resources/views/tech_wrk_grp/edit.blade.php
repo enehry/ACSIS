@@ -46,23 +46,12 @@
               <span class="Name">TWG Position</span><span class="required">*</span><br>
               <select class="@error('position') is-invalid @enderror" name="position">
                 <option value="{{ $tch->position }}" selected>{{ $tch->position }}</option>
-                <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>
-                <option value="National Administrative Support Unit">National Administrative Support Unit</option>
-                <option value="National Operations Support Unit">National Operations Support Unit</option>
-                <option value="Police Regional Office">Police Regional Office</option>
+                <option value="Chief">Chief</option>
+                <option value="Deputy Chief">Deputy Chief</option>
+                <option value="Member">Member</option>
               </select>
             </div>
 
-            <div class="acSec">
-              <span class="Name">TWG Sector</span><span class="required">*</span><br>
-              <select class="@error('sector') is-invalid @enderror" name="sector">
-                <option value="{{ $tch->position }}" selected>{{ $tch->position }}</option>
-                <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>
-                <option value="National Administrative Support Unit">National Administrative Support Unit</option>
-                <option value="National Operations Support Unit">National Operations Support Unit</option>
-                <option value="Police Regional Office">Police Regional Office</option>
-              </select>
-            </div>
 
             <div class="oTitle">
               <span class="Name">Other Title</span><br>
@@ -73,10 +62,17 @@
 
           <h2>Create Account</h2>
           <div class="row">
-            <div class="col-md-4"><input class="@error('email') is-invalid @enderror" type="text" placeholder="Email" name="email" disabled required value="{{ $stk->email }}">
+            <div class="col-md-3"><input class="@error('email') is-invalid @enderror" type="text" placeholder="Email" name="email" disabled required value="{{ $stk->email }}">
             </div>
-            <div class="col-md-4"><input class="@error('password') is-invalid @enderror" type="password" placeholder="password" name="password"></div>
-            <div class="col-md-4"><input type="password" placeholder="retype password" name="password_confirmation"></div>
+            <div class="col-md-3">
+              <select class="@error('role') is-invalid @enderror" name="role">
+                <option selected value="{{ $stk->role }}">{{ $stk->role }}</option>
+                <option value="stakeholder">stakeholder</option>
+                <option value="admin">admin</option>
+              </select>
+            </div>
+            <div class="col-md-3"><input class="@error('password') is-invalid @enderror" type="password" placeholder="password" name="password"></div>
+            <div class="col-md-3"><input type="password" placeholder="retype password" name="password_confirmation"></div>
           </div>
           <h2>Basic Information</h2>
           <hr />

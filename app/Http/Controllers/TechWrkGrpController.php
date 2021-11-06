@@ -20,7 +20,6 @@ class TechWrkGrpController extends Controller
   {
     //
     $stakeholders = DB::table('users')
-      ->where('role', '=', 'stakeholder')
       ->join('tech_wrk_grps', 'users.id', '=', 'tech_wrk_grps.user_id')
       ->select('users.*', 'tech_wrk_grps.position', 'tech_wrk_grps.sector', 'tech_wrk_grps.other_title')
       ->get();
@@ -54,7 +53,6 @@ class TechWrkGrpController extends Controller
       'email' => 'email|required|unique:users',
       'role' => 'required',
       'position' => 'required',
-      'sector' => 'required',
       'lname' =>  'required|max:100',
       'fname' =>  'required|max:100',
       'sex' => 'required',
@@ -88,7 +86,6 @@ class TechWrkGrpController extends Controller
 
     $tch = new TechWrkGrp();
     $tch->position = $request->position;
-    $tch->sector = $request->sector;
     $tch->other_title = $request->other_title;
     $tch->user_id = $user->id;
 
@@ -138,7 +135,6 @@ class TechWrkGrpController extends Controller
     $request->validate([
       'role' => 'required',
       'position' => 'required',
-      'sector' => 'required',
       'lname' =>  'required|max:100',
       'fname' =>  'required|max:100',
       'sex' => 'required',
@@ -171,7 +167,6 @@ class TechWrkGrpController extends Controller
 
     $tch = TechWrkGrp::where('user_id', '=', $user->id)->first();
     $tch->position = $request->position;
-    $tch->sector = $request->sector;
     $tch->other_title = $request->other_title;
 
     $tch->save();

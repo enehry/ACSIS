@@ -31,7 +31,7 @@
       <th scope="col">Address</th>
       <th scope="col">bday</th>
       <th scope="col">position</th>
-      <th scope="col">sector</th>
+      <th scope="col">role</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -45,7 +45,7 @@
       <td>{{ $stk->street." ".$stk->brgy." ".$stk->city." ".$stk->province }}</td>
       <td>{{ $stk->bday }}</td>
       <td>{{ $stk->position }}</td>
-      <td>{{ $stk->sector }}</td>
+      <td>{{ $stk->role }}</td>
       <td>
         <a href="/technical-working-group/edit/{{$stk->id}}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
         <form method="POST" action="/technical-working-group/delete/{{$stk->id}}">

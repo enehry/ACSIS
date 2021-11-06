@@ -20,7 +20,6 @@ class PSMUController extends Controller
   {
     //
     $stakeholders = DB::table('users')
-      ->where('role', '=', 'stakeholder')
       ->join('police_strat_mng_units', 'users.id', '=', 'police_strat_mng_units.user_id')
       ->select('users.*', 'police_strat_mng_units.position', 'police_strat_mng_units.sector', 'police_strat_mng_units.other_title')
       ->get();

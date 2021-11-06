@@ -32,7 +32,7 @@
           <div class="alert alert-success">
             <i class="fas fa-check-circle mr-2"></i>
             {{ session()->get('success') }}
-            <a class="float-right" href="/technical-working-group">Back to PSMU List</a>
+            <a class="float-right" href="/psmu">Back to PSMU List</a>
           </div>
           @endif
 
@@ -45,21 +45,36 @@
               <span class="Name">PSMU Position</span><span class="required">*</span><br>
               <select class="@error('position') is-invalid @enderror" name="position">
                 <option value="{{ $psmu->position }}" selected>{{ $psmu->position }}</option>
-                <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>
-                <option value="National Administrative Support Unit">National Administrative Support Unit</option>
-                <option value="National Operations Support Unit">National Operations Support Unit</option>
-                <option value="Police Regional Office">Police Regional Office</option>
+                <option value="Chief">Chief</option>
+                <option value="Assistant Chief">Assistant Chief</option>
+                <option value="Action PNCO">Action PNCO</option>
+                <option value="Action PCO">Action PCO</option>
+                <option value="Action NUP">Action NUP</option>
               </select>
             </div>
 
             <div class="acSec">
-              <span class="Name">PSMU Sector</span><span class="required">*</span><br>
+              <span class="Name">PSMU Section</span><span class="required">*</span><br>
               <select class="@error('sector') is-invalid @enderror" name="sector">
-                <option value="{{ $psmu->position }}" selected>{{ $psmu->position }}</option>
-                <option value="Secondary Directorial Staff">Secondary Directorial Staff</option>
-                <option value="National Administrative Support Unit">National Administrative Support Unit</option>
-                <option value="National Operations Support Unit">National Operations Support Unit</option>
-                <option value="Police Regional Office">Police Regional Office</option>
+                <option value="{{ $psmu->sector }}" selected>{{ $psmu->sector }}</option>
+                <option value="Police Strategy Management Unit">Police Strategy Management Unit</option>
+                <option value="Scorecard Management and Alignment Section">Scorecard Management and Alignment Section</option>
+                <option value="Strategy Review Section">Strategy Review Section
+                </option>
+                <option value="Planning and Initiative Management Section">Planning and Initiative Management Section
+                </option>
+                <option value="Monitoring and Evaluation Section">Monitoring and Evaluation Section
+                </option>
+                <option value="Strategy Communication and Alignment Section">Strategy Communication and Alignment Section
+                </option>
+                <option value="Change Management and Best Practices Section">Change Management and Best Practices Section
+                </option>
+                <option value="Monitoring and Evaluation, Change Management and Best Practices Section">
+                  Monitoring and Evaluation, Change Management and Best Practices Section
+                </option>
+                <option value="Planning, Alignment and Strategy Communication Section">
+                  Planning, Alignment and Strategy Communication Section
+                </option>
               </select>
             </div>
 
@@ -85,7 +100,7 @@
               <span class="Name">Name</span><span class="required">*</span><br>
               <input class="@error('lname') is-invalid @enderror" type="text" placeholder="Last Name" name="lname" required value="{{ $stk->lname }}">
               <input class="@error('fname') is-invalid @enderror" type="text" placeholder="First Name" name="fname" required value="{{ $stk->fname }}">
-              <input type="text" placeholder="Middle Name" name="mname" required value="{{ $stk->mname }}">
+              <input type="text" placeholder="Middle Name" name="mname" value="{{ $stk->mname }}">
             </div>
             <div class="bday-sex">
               <div class="bday">

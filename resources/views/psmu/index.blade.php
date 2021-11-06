@@ -32,7 +32,8 @@
       <th scope="col">Address</th>
       <th scope="col">bday</th>
       <th scope="col">position</th>
-      <th scope="col">sector</th>
+      <th scope="col">section</th>
+      <th scope="col">role</th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -40,13 +41,20 @@
     @foreach($stakeholders as $stk)
     <tr>
       <th scope="row"> {{ $stk->id }}</th>
-      <td>{{ $stk->avatar }}</td>
+      <td class="text-center">
+        @if($stk->avatar)
+        <img style="height: 50px;" class="rounded-circle border" src="{{ $stk->avatar }}">
+        @else
+        <img style="height: 50px;" class="rounded-circle border" src="https://avatars.dicebear.com/api/initials/{{$stk->fname}}.svg?background=%23211838">
+        @endif
+      </td>
       <td>{{ $stk->fname." ".$stk->lname }}</td>
       <td>{{ $stk->email }}</td>
       <td>{{ $stk->street." ".$stk->brgy." ".$stk->city." ".$stk->province }}</td>
       <td>{{ $stk->bday }}</td>
       <td>{{ $stk->position }}</td>
       <td>{{ $stk->sector }}</td>
+      <td>{{ $stk->role }}</td>
       <td>
         <a href="{{ route('psmu.edit', $stk->id ) }}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
         <form method="POST" action="{{ route('psmu.destroy', $stk->id ) }}">
