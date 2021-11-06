@@ -14,7 +14,7 @@
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="/css/default.css"> -->
+  <link rel="stylesheet" href="/css/inputs.css">
   <link rel="stylesheet" href="/css/loading.css">
   <link rel="stylesheet" href="/css/maintenance/advisoryCouncil.css">
   <link rel="stylesheet" href="/css/createmeeting.css">
