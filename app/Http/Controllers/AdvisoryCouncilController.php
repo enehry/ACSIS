@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AdvisoryCouncil;
 
 class AdvisoryCouncilController extends Controller
 {
@@ -15,7 +16,8 @@ class AdvisoryCouncilController extends Controller
     {
         //
         // return 'Request PULL';
-        return view('advisory_council.index');
+        $advcons = AdvisoryCouncil::all();
+        return view('advisory_council.index', compact('advcons'));
     }
 
     /**
@@ -61,6 +63,7 @@ class AdvisoryCouncilController extends Controller
     public function edit($id)
     {
         //
+        return view('advisory_council.edit');
     }
 
     /**
@@ -84,5 +87,7 @@ class AdvisoryCouncilController extends Controller
     public function destroy($id)
     {
         //
+        AdvisoryCouncil::find($id)->delete();
+        return redirect()->back()->with('success', 'meeting successfully deleted');
     }
 }
