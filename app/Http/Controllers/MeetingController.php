@@ -15,31 +15,6 @@ class MeetingController extends Controller
      */
     public function index()
     {
-        //
-        //display of table(data)
-        // $this->validate($request, [
-        //     'what' => 'required|max:255',
-        //     'who' => 'required|max:255',
-        //     'where' => 'required|max:255',
-        //     'when' => 'required|max:255',
-        //     'why' => 'required|max:255'
-        // ]);
-
-        // $meeting = new Meeting;
-        // $meeting->what = $request->what;
-        // $meeting->who = $request->who;
-        // $meeting->when = $request->when;
-        // $meeting->where = $request->where;
-        // $meeting->why = $request->why;
-        // $meeting->how = $request->how;
-        // $meeting->description = $request->description;
-        // $meeting->user_id = Auth::id();
-        // $meeting->save();
-
-        // // $input = $request->all();
-        // // Meeting::create($input);
-        // // return redirect('/create-meetings');
-
         $meetings = Meeting::all();
         return view('meetings.index', compact('meetings'));
     }

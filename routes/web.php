@@ -46,6 +46,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/editacc', [HomeController::class, 'editacc'])->name('main.editacc');
 
   /* Activity */
+
+  //CREATE MEETING
   Route::resource('/create-meetings', MeetingController::class);
 
   Route::get('/activity', [HomeController::class, 'activity'])->name('main.activity.activity');
@@ -53,8 +55,11 @@ Route::middleware('auth')->group(function () {
 
 
   /* Maintenance */
-  Route::get('/advisory-council', [AdvisoryCouncilController::class, 'index'])->name('advCon');
+
   Route::get('/admin', [HomeController::class, 'admin'])->name('main.admin');
+
+  //ADVISORY COUNCIL
+  Route::resource('/advisory-council', AdvisoryCouncilController::class);
 
   // TECHNICAL WORKING GROUP
   Route::get('/technical-working-group', [TechWrkGrpController::class, 'index'])->name('twg');
