@@ -9,7 +9,7 @@
 
             <div class="centerBox">
 
-                <form method="post" action="{{ route('twg.update', ['id' => $adv->id]) }}">
+                <form method="post" action="{{ route('advisory-council.update', $stk->id) }}">
                     @csrf
                     {{ method_field('PUT') }}
                     <fieldset id="addAdvisor">
@@ -33,7 +33,7 @@
                             <div class="alert alert-success">
                                 <i class="fas fa-check-circle mr-2"></i>
                                 {{ session()->get('success') }}
-                                <a class="float-right" href="/technical-working-group">Back to Technical Working Group
+                                <a class="float-right" href="/advisory-council">Back to Advisory Council
                                     List</a>
                             </div>
                         @endif
@@ -65,11 +65,11 @@
                         <h2>Create Account</h2>
                         <div class="row">
                             <div class="col-md-3"><input class="@error('email') is-invalid @enderror" type="text"
-                                    placeholder="Email" name="email" disabled required value="{{ $adv->email }}">
+                                    placeholder="Email" name="email" disabled required value="{{ $stk->email }}">
                             </div>
                             <div class="col-md-3">
                                 <select class="@error('role') is-invalid @enderror" name="role">
-                                    <option selected value="{{ $adv->role }}">{{ $adv->role }}</option>
+                                    <option selected value="{{ $stk->role }}">{{ $stk->role }}</option>
                                     <option value="stakeholder">stakeholder</option>
                                     <option value="admin">admin</option>
                                 </select>
@@ -86,11 +86,11 @@
                             <div class="name">
                                 <span class="Name">Name</span><span class="required">*</span><br>
                                 <input class="@error('lname') is-invalid @enderror" type="text" placeholder="Last Name"
-                                    name="lname" required value="{{ $adv->lname }}">
+                                    name="lname" required value="{{ $stk->lname }}">
                                 <input class="@error('fname') is-invalid @enderror" type="text" placeholder="First Name"
-                                    name="fname" required value="{{ $adv->fname }}">
+                                    name="fname" required value="{{ $stk->fname }}">
                                 <input type="text" placeholder="Middle Name" name="mname" required
-                                    value="{{ $adv->mname }}">
+                                    value="{{ $stk->mname }}">
                             </div>
                             <div class="bday-sex">
                                 <div class="bday">
@@ -101,7 +101,7 @@
                                 <div class="sex">
                                     <span class="Name">Sex:</span> <br />
                                     <select class="@error('sex') is-invalid @enderror" name="sex">
-                                        <option selected value="{{ $adv->sex }}">{{ $adv->sex }}</option>
+                                        <option selected value="{{ $stk->sex }}">{{ $stk->sex }}</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -122,22 +122,22 @@
                                     <span class="Name">Home Address/Office Address</span><br>
                                     <input class="@error('street') is-invalid @enderror" type="text"
                                         placeholder="Number / Street / Subdivision" name="street" required
-                                        value="{{ $adv->street }}">
+                                        value="{{ $stk->street }}">
                                 </div>
                                 <div class="brngy">
                                     <span class="Name"> </span><br>
                                     <input class="@error('brgy') is-invalid @enderror" type="text" placeholder="Barangay"
-                                        name="brgy" required value="{{ $adv->brgy }}">
+                                        name="brgy" required value="{{ $stk->brgy }}">
                                 </div>
                                 <div class="city">
                                     <span class="Name"> </span><br>
                                     <input class="@error('city') is-invalid @enderror" type="text" placeholder="City"
-                                        name="city" required value="{{ $adv->city }}">
+                                        name="city" required value="{{ $stk->city }}">
                                 </div>
                                 <div class="province">
                                     <span class="Name"> </span><br>
                                     <input class="@error('province') is-invalid @enderror" type="text"
-                                        placeholder="Province" name="province" required value="{{ $adv->province }}">
+                                        placeholder="Province" name="province" required value="{{ $stk->province }}">
                                 </div>
                             </div>
                         </div>

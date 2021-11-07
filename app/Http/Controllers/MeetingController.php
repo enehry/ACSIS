@@ -58,6 +58,12 @@ class MeetingController extends Controller
         $meeting->save();
         // dd($request->all());
         return redirect('/create-meetings')->with('success', 'meeting created successful');
+
+        //add new activity
+        //$activity = new Activity;
+        //$activity->category = 
+        //$activity->description = ''
+        //$activity->user_id = Auth::user()->id
     }
 
     /**

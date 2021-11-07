@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Meeting;
+use Illuminate\Support\Facades\Auth;
 
 class ActivityController extends Controller
 {
@@ -14,6 +16,7 @@ class ActivityController extends Controller
     public function index()
     {
         //
+        $meeting = Meeting::where('user_id', '=', Auth::user()->id)->get();
     }
 
     /**

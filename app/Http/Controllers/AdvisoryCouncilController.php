@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\AdvisoryCouncil;
 use App\Models\User;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -19,12 +20,10 @@ class AdvisoryCouncilController extends Controller
     public function index()
     {
         //
-        // return 'Request PULL';
         $stakeholders = DB::table('users')
             ->join('advisory_councils', 'users.id', '=', 'advisory_councils.user_id')
             ->select('users.*', 'advisory_councils.position', 'advisory_councils.other_title')
             ->get();
-        // $advcons = AdvisoryCouncil::all();
         return view('advisory_council.index', compact('stakeholders'));
     }
 
@@ -130,6 +129,48 @@ class AdvisoryCouncilController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'role' => 'required',
+            'position' => 'required',
+            'lname' =>  'required|max:100',
+            'fname' =>  'required|max:100',
+            'sex' => 'required',
+            'password' =>  $request->password ? 'required|min:6|confirmed' : '',
+            'street' => 'required',
+            'brgy' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'bday' => 'required',
+        ]);
+
+        // $user = User::find(Auth::user()->id);
+        $user = User::find($id);
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->mname = $request->mname;
+        $user->bday = $request->bday;
+        $user->sex = $request->sex;
+        $user->street = $request->street;
+        $user->brgy = $request->brgy;
+        $user->city = $request->city;
+        $user->province = $request->province;
+        $user->role = $request->role;
+
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+
+        if (!$user->save()) {
+            return redirect()->back()->with('error', 'There is a problem updating a user');
+        }
+
+        $adv = AdvisoryCouncil::where('user_id', '=', $user->id)->first();
+        $adv->position = $request->position;
+        $adv->other_title = $request->other_title;
+
+        $adv->save();
+
+        return redirect()->back()->with('success', 'User successfully updated');
     }
 
     /**
@@ -141,12 +182,10 @@ class AdvisoryCouncilController extends Controller
     public function destroy($id)
     {
         //
-        AdvisoryCouncil::find($id)->delete();
         $user = User::find($id);
-        $deleted = $user->delete();
-        if (!$deleted) {
-            return redirect()->back()->with('error', 'There is a problem delete a user');
-        }
+        $adv = AdvisoryCouncil::where('user_id', '=', $user->id)->first();
+        $adv->delete();
+        $user->delete();
 
         return redirect()->back()->with('success', 'User successfully deleted');
     }
