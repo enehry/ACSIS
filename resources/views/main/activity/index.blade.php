@@ -21,45 +21,44 @@
             <div class="title1">
                 <h3>Activity</h3>
             </div>
+            <br>
             <div class="col-md-12">
-                {{-- <div class="row"> --}}
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Activity ID
-                            </th>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                Category
-                            </th>
-                        </tr>
-                    </thead>
-                </table>
+
+
                 @foreach ($activities as $activity)
                     <div class="card">
                         <div class="card-header">
-                            {{-- timestamp here --}}
                             {{ $activity->created_at }}
                         </div>
                         <div>
+
                             <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Activity ID
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Category
+                                        </th>
+                                    </tr>
+                                    {{-- </thead> --}}
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td></td>
+                                        {{-- <td></td> --}}
                                         <td>{{ $activity->id }}</td>
+                                        {{-- <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td>{{ Auth::user()->fname }}</td>
+                                        <td></td> --}}
                                         <td>{{ $activity->description }} </td>
+                                        {{-- <td></td> --}}
                                         <td>{{ $activity->category }}</td>
                                     </tr>
 
@@ -89,23 +88,23 @@
 <!-- @extends('layouts.app')
 
 @section('content')
-                                                                                                                                        <div class="container">
-                                                                                                                                            <div class="row justify-content-center">
-                                                                                                                                                <div class="col-md-8">
-                                                                                                                                                    <div class="card">
-                                                                                                                                                        <div class="card-header">{{ __('Dashboard') }}</div>
+                                                                                                                                                                                                                                                                                                                                                <div class="container">
+                                                                                                                                                                                                                                                                                                                                                    <div class="row justify-content-center">
+                                                                                                                                                                                                                                                                                                                                                        <div class="col-md-8">
+                                                                                                                                                                                                                                                                                                                                                            <div class="card">
+                                                                                                                                                                                                                                                                                                                                                                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                                                                                                                                                        <div class="card-body">
-                                                                                                                                                            @if (session('status'))
-                                                                                                                                                            <div class="alert alert-success" role="alert">
-                                                                                                                                                                {{ session('status') }}
-                                                                                                                                                            </div>
-                                                                                                                                                            @endif
+                                                                                                                                                                                                                                                                                                                                                                <div class="card-body">
+                                                                                                                                                                                                                                                                                                                                                                    @if (session('status'))
+                                                                                                                                                                                                                                                                                                                                                                    <div class="alert alert-success" role="alert">
+                                                                                                                                                                                                                                                                                                                                                                        {{ session('status') }}
+                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                    @endif
 
-                                                                                                                                                            {{ __('You are logged in!') }}
-                                                                                                                                                        </div>
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                            </div>
-                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                    {{ __('You are logged in!') }}
+                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                </div>
 @endsection -->

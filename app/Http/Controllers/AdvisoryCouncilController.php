@@ -93,7 +93,7 @@ class AdvisoryCouncilController extends Controller
         //add new activity
         $activity = new Activity;
         $activity->category = 'Advisory Council';
-        $activity->description = 'You created a New AC Profile';
+        $activity->description = 'You created a Profile';
         $activity->user_id = Auth::user()->id;
         $activity->save();
 
@@ -173,8 +173,14 @@ class AdvisoryCouncilController extends Controller
         $adv = AdvisoryCouncil::where('user_id', '=', $user->id)->first();
         $adv->position = $request->position;
         $adv->other_title = $request->other_title;
-
         $adv->save();
+
+        //add new activity
+        $activity = new Activity();
+        $activity->category = 'Advisory Council';
+        $activity->description = 'You edited a Profile';
+        $activity->user_id = Auth::user()->id;
+        $activity->save();
 
         return redirect()->back()->with('success', 'User successfully updated');
     }
@@ -192,6 +198,13 @@ class AdvisoryCouncilController extends Controller
         $adv = AdvisoryCouncil::where('user_id', '=', $user->id)->first();
         $adv->delete();
         $user->delete();
+
+        //add new activity
+        $activity = new Activity();
+        $activity->category = 'Advisory Council';
+        $activity->description = 'You deleted a Profile';
+        $activity->user_id = Auth::user()->id;
+        $activity->save();
 
         return redirect()->back()->with('success', 'User successfully deleted');
     }

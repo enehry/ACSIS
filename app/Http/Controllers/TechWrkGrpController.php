@@ -90,8 +90,14 @@ class TechWrkGrpController extends Controller
     $tch->position = $request->position;
     $tch->other_title = $request->other_title;
     $tch->user_id = $user->id;
-
     $tch->save();
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Technical Working Group';
+    $activity->description = 'You created a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
 
     return redirect(route('twg.create'))->with('message', 'User successfully created');
@@ -175,7 +181,7 @@ class TechWrkGrpController extends Controller
     //add new activity
     $activity = new Activity();
     $activity->category = 'Technical Working Group';
-    $activity->description = 'You created a New TWG Profile';
+    $activity->description = 'You edited a Profile';
     $activity->user_id = Auth::user()->id;
     $activity->save();
 
@@ -195,6 +201,13 @@ class TechWrkGrpController extends Controller
     $tch = TechWrkGrp::where('user_id', '=', $user->id)->first();
     $tch->delete();
     $user->delete();
+
+    //add new activity
+    $activity = new Activity;
+    $activity->category = 'Technical Working Group';
+    $activity->description = 'You deleted a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('success', 'There is a problem delete a user');
   }

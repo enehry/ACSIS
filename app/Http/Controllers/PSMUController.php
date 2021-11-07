@@ -95,7 +95,7 @@ class PSMUController extends Controller
     //add new activity
     $activity = new Activity();
     $activity->category = 'Police Strategy Management Unit';
-    $activity->description = 'You created a New PSMU Profile';
+    $activity->description = 'You created a Profile';
     $activity->user_id = Auth::user()->id;
     $activity->save();
 
@@ -176,8 +176,14 @@ class PSMUController extends Controller
     $psmu->position = $request->position;
     $psmu->sector = $request->sector;
     $psmu->other_title = $request->other_title;
-
     $psmu->save();
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Police Strategy Management Unit';
+    $activity->description = 'You edited a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('success', 'User successfully updated');
   }
@@ -196,6 +202,13 @@ class PSMUController extends Controller
     if (!$deleted) {
       return redirect()->back()->with('error', 'There is a problem delete a user');
     }
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Police Strategy Management Unit';
+    $activity->description = 'You deleted a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('success', 'User successfully deleted');
   }

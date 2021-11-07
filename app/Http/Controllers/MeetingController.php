@@ -62,7 +62,7 @@ class MeetingController extends Controller
         //add new activity
         $activity = new Activity;
         $activity->category = 'Meeting';
-        $activity->description = 'You created a New Meeting';
+        $activity->description = 'You created a Meeting';
         $activity->user_id = Auth::user()->id;
         $activity->save();
 
@@ -111,6 +111,13 @@ class MeetingController extends Controller
         $meeting->fill($request->all());
         $meeting->save();
 
+        //add new activity
+        $activity = new Activity;
+        $activity->category = 'Meeting';
+        $activity->description = 'You edited a Meeting';
+        $activity->user_id = Auth::user()->id;
+        $activity->save();
+
         return redirect('/create-meetings')->with('sucess', 'meeting successfully updated');
     }
 
@@ -124,6 +131,13 @@ class MeetingController extends Controller
     {
         //
         Meeting::find($id)->delete();
+        //add new activity
+        $activity = new Activity;
+        $activity->category = 'Meeting';
+        $activity->description = 'You deleted a Meeting';
+        $activity->user_id = Auth::user()->id;
+        $activity->save();
+
         return redirect()->back()->with('success', 'meeting successfully deleted');
     }
 }
