@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Meeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,13 +58,16 @@ class MeetingController extends Controller
         $meeting->user_id = Auth::user()->id;
         $meeting->save();
         // dd($request->all());
-        return redirect('/create-meetings')->with('success', 'meeting created successful');
 
         //add new activity
-        //$activity = new Activity;
-        //$activity->category = 
-        //$activity->description = ''
-        //$activity->user_id = Auth::user()->id
+        $activity = new Activity;
+        $activity->category = 'Meeting';
+        $activity->description = 'You created a New Meeting';
+        $activity->user_id = Auth::user()->id;
+        $activity->save();
+
+
+        return redirect('/create-meetings')->with('success', 'meeting created successful');
     }
 
     /**

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\PoliceStratMngUnit;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -88,9 +90,14 @@ class PSMUController extends Controller
     $psmu->sector = $request->sector;
     $psmu->other_title = $request->other_title;
     $psmu->user_id = $user->id;
-
     $psmu->save();
 
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Police Strategy Management Unit';
+    $activity->description = 'You created a New PSMU Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('message', 'User successfully created');
   }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use App\Models\AdvisoryCouncil;
 use App\Models\User;
@@ -87,9 +88,14 @@ class AdvisoryCouncilController extends Controller
         $adv->position = $request->position;
         $adv->other_title = $request->other_title;
         $adv->user_id = $user->id;
-
         $adv->save();
 
+        //add new activity
+        $activity = new Activity;
+        $activity->category = 'Advisory Council';
+        $activity->description = 'You created a New AC Profile';
+        $activity->user_id = Auth::user()->id;
+        $activity->save();
 
         return redirect(route('advisory-council.create'))->with('message', 'User successfully created');
     }

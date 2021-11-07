@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use Illuminate\Http\Request;
-use App\Models\Meeting;
-use Illuminate\Support\Facades\Auth;
 
 class ActivityController extends Controller
 {
@@ -16,7 +15,10 @@ class ActivityController extends Controller
     public function index()
     {
         //
-        $meeting = Meeting::where('user_id', '=', Auth::user()->id)->get();
+        // $meeting = ::where('user_id', '=', Auth::user()->id)->get();
+        $activities = Activity::all();
+        $activities = $activities->reverse();
+        return view('main.activity.index', compact('activities'));
     }
 
     /**

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\TechWrkGrp;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -168,8 +170,14 @@ class TechWrkGrpController extends Controller
     $tch = TechWrkGrp::where('user_id', '=', $user->id)->first();
     $tch->position = $request->position;
     $tch->other_title = $request->other_title;
-
     $tch->save();
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Technical Working Group';
+    $activity->description = 'You created a New TWG Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('success', 'User successfully updated');
   }
