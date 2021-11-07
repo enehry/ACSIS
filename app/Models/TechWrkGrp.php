@@ -10,7 +10,6 @@ class TechWrkGrp extends Model
   use HasFactory;
   protected $fillable = [
     'position',
-    'sector',
     'user_id',
     'other_title',
   ];

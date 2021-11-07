@@ -21,7 +21,7 @@ class TechWrkGrpController extends Controller
     //
     $stakeholders = DB::table('users')
       ->join('tech_wrk_grps', 'users.id', '=', 'tech_wrk_grps.user_id')
-      ->select('users.*', 'tech_wrk_grps.position', 'tech_wrk_grps.sector', 'tech_wrk_grps.other_title')
+      ->select('users.*', 'tech_wrk_grps.position', 'tech_wrk_grps.other_title')
       ->get();
 
     return view('tech_wrk_grp.index', compact('stakeholders'));
@@ -184,11 +184,10 @@ class TechWrkGrpController extends Controller
   {
     //
     $user = User::find($id);
-    $deleted = $user->delete();
-    if (!$deleted) {
-      return redirect()->back()->with('error', 'There is a problem delete a user');
-    }
+    $tch = TechWrkGrp::where('user_id', '=', $user->id)->first();
+    $tch->delete();
+    $user->delete();
 
-    return redirect()->back()->with('success', 'User successfully deleted');
+    return redirect()->back()->with('success', 'There is a problem delete a user');
   }
 }

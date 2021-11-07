@@ -49,6 +49,11 @@ class User extends Authenticatable //implements MustVerifyEmail
       ->create();
   }
 
+  public function advCouncil()
+  {
+    return $this->hasOne(AdvisoryCouncil::class, 'user_id');
+  }
+
   public function tchWrkGrp()
   {
     return $this->hasOne(TechWrkGrp::class, 'user_id');
