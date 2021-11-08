@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\TechWrkGrp;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,7 +23,7 @@ class TechWrkGrpController extends Controller
     //
     $stakeholders = DB::table('users')
       ->join('tech_wrk_grps', 'users.id', '=', 'tech_wrk_grps.user_id')
-      ->select('users.*', 'tech_wrk_grps.position', 'tech_wrk_grps.sector', 'tech_wrk_grps.other_title')
+      ->select('users.*', 'tech_wrk_grps.position', 'tech_wrk_grps.other_title')
       ->get();
 
     return view('tech_wrk_grp.index', compact('stakeholders'));
@@ -88,8 +90,14 @@ class TechWrkGrpController extends Controller
     $tch->position = $request->position;
     $tch->other_title = $request->other_title;
     $tch->user_id = $user->id;
-
     $tch->save();
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Technical Working Group';
+    $activity->description = 'You created a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
 
     return redirect(route('twg.create'))->with('message', 'User successfully created');
@@ -168,8 +176,14 @@ class TechWrkGrpController extends Controller
     $tch = TechWrkGrp::where('user_id', '=', $user->id)->first();
     $tch->position = $request->position;
     $tch->other_title = $request->other_title;
-
     $tch->save();
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Technical Working Group';
+    $activity->description = 'You edited a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('success', 'User successfully updated');
   }
@@ -184,11 +198,17 @@ class TechWrkGrpController extends Controller
   {
     //
     $user = User::find($id);
-    $deleted = $user->delete();
-    if (!$deleted) {
-      return redirect()->back()->with('error', 'There is a problem delete a user');
-    }
+    $tch = TechWrkGrp::where('user_id', '=', $user->id)->first();
+    $tch->delete();
+    $user->delete();
 
-    return redirect()->back()->with('success', 'User successfully deleted');
+    //add new activity
+    $activity = new Activity;
+    $activity->category = 'Technical Working Group';
+    $activity->description = 'You deleted a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
+
+    return redirect()->back()->with('success', 'There is a problem delete a user');
   }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\AdvisoryCouncilController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PSMUController;
 use App\Http\Controllers\TechWrkGrpController;
+use App\Models\Activity;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -37,6 +39,8 @@ Route::get('/advisorlist', function () {
 Route::middleware('auth')->group(function () {
   Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+  //ACTIVITY
+  Route::resource('/activity-logs', ActivityController::class);
 
   //CREATE MEETING
   Route::resource('/create-meetings', MeetingController::class);

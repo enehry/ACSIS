@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\PoliceStratMngUnit;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -88,9 +90,14 @@ class PSMUController extends Controller
     $psmu->sector = $request->sector;
     $psmu->other_title = $request->other_title;
     $psmu->user_id = $user->id;
-
     $psmu->save();
 
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Police Strategy Management Unit';
+    $activity->description = 'You created a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('message', 'User successfully created');
   }
@@ -169,8 +176,14 @@ class PSMUController extends Controller
     $psmu->position = $request->position;
     $psmu->sector = $request->sector;
     $psmu->other_title = $request->other_title;
-
     $psmu->save();
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Police Strategy Management Unit';
+    $activity->description = 'You edited a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('success', 'User successfully updated');
   }
@@ -189,6 +202,13 @@ class PSMUController extends Controller
     if (!$deleted) {
       return redirect()->back()->with('error', 'There is a problem delete a user');
     }
+
+    //add new activity
+    $activity = new Activity();
+    $activity->category = 'Police Strategy Management Unit';
+    $activity->description = 'You deleted a Profile';
+    $activity->user_id = Auth::user()->id;
+    $activity->save();
 
     return redirect()->back()->with('success', 'User successfully deleted');
   }
