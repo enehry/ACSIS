@@ -55,66 +55,59 @@
 </head>
 
 <body>
-    <div id="app">
+  <div id="app">
 
-        <nav style="background-color: #211838;" class="navbar navbar-dark navbar-expand-lg">
-            <div class=""><a href="#"><img style="height: 60px;" class="img-responsive"
-                        src="/images/patrolplan.png"></a></div>
-            <h6 class="ml-md-2 text-light">
-                AC-SIS STAKEHOLDER<br />
-                INFORMATION SYSTEM
-                </a>
-            </h6>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav style="background-color: #211838;" class="navbar navbar-dark navbar-expand-lg">
+      <div class=""><a href="#"><img style="height: 60px;" class="img-responsive" src="/images/patrolplan.png"></a></div>
+      <h6 class="ml-md-2 text-light">
+        AC-SIS STAKEHOLDER<br />
+        INFORMATION SYSTEM
+        </a>
+      </h6>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Advisory List</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Activity
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
-                            aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/activity-logs">Activity</a>
-                            @if (Auth::user()->role != 'stakeholder')
-                                <a class="dropdown-item" href="/create-meetings">Create Meeting</a>
-                            @endif
-                            <a class="dropdown-item" href="/balancedScorecardManagement">Balanced Scorecard
-                                Management</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="fas fa-bell"></i></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img style="height: 30px;" class="rounded-circle border border-light"
-                                src="https://avatars.dicebear.com/api/initials/{{ Auth::user()->fname }}.svg?background=%23211838">
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
-                            aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/profile">Profile</a>
-                            @if (Auth::user()->role != 'stakeholder')
-                                <a class="dropdown-item" href="/admin">Admin</a>
-                                @if (Auth::user()->role != 'admin')
-                                    <a class="dropdown-item" href="/advisory-council">Advisory Council</a>
-                                    <a class="dropdown-item" href="/technical-working-group">Technical Working
-                                        Group</a>
-                                    <a class="dropdown-item" href="/psmu">Police Strategy Management Unit</a>
-                                @endif
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Advisory List</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Activity
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/activity">Activity</a>
+              @if(Auth::user()->role != 'stakeholder')
+              <a class="dropdown-item" href="/create-meetings">Create Meeting</a>
+              @endif
+              <a class="dropdown-item" href="/balancedScorecardManagement">Balanced Scorecard Management</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/"><i class="fas fa-bell"></i>
+              <span id="counter"></span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img style="height: 30px;" class="rounded-circle border border-light" src="https://avatars.dicebear.com/api/initials/{{Auth::user()->fname}}.svg?background=%23211838">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/profile">Profile</a>
+              @if (Auth::user()->role != 'stakeholder')
+              <a class="dropdown-item" href="/admin">Admin</a>
+              @if (Auth::user()->role != 'admin')
+              <a class="dropdown-item" href="/advisory-council">Advisory Council</a>
+              <a class="dropdown-item" href="/technical-working-group">Technical Working Group</a>
+              <a class="dropdown-item" href="/psmu">Police Strategy Management Unit</a>
+              @endif
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -142,13 +135,34 @@
             </ul>
 
     </div>
+
     </nav>
     <main class="py-4">
 
         <div class="container">
             @yield('content')
         </div>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+
+        $.ajax({
+          url: "/notification-counter",
+          type: "GET",
+          dataType: "json",
+          success: function(data) {
+            $("#counter").text(data.count).addClass("badge badge-secondary");
+          },
+          error: function(data) {
+            console.log(data);
+          }
+        });
+
+      });
+    </script>
+
 </body>
 
 

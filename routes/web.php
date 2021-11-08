@@ -5,6 +5,7 @@ use App\Http\Controllers\AdvisoryCouncilController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PSMUController;
 use App\Http\Controllers\TechWrkGrpController;
@@ -69,6 +70,8 @@ Route::middleware('auth')->group(function () {
 
   // PSMU
   Route::resource('psmu', PSMUController::class);
+
+  Route::get('/notification-counter', [NotificationController::class, 'getNotificationCount']);
 });
 
 
