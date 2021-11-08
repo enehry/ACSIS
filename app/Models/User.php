@@ -58,4 +58,9 @@ class User extends Authenticatable //implements MustVerifyEmail
   {
     return $this->hasOne(PoliceStratMngUnit::class, 'user_id');
   }
+
+  public function unreadNotifications()
+  {
+    return $this->hasMany(Notification::class, 'user_id')->where('is_viewed', false);
+  }
 }
