@@ -72,6 +72,8 @@ Route::middleware('auth')->group(function () {
   Route::resource('psmu', PSMUController::class);
 
   Route::get('/notification-counter', [NotificationController::class, 'getNotificationCount']);
+  Route::get('/notification-list', [NotificationController::class, 'index']);
+  Route::get('/notification-viewed/{id}', [NotificationController::class, 'viewed'])->name('notification.viewed');
 });
 
 

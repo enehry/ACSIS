@@ -22,4 +22,14 @@ class Notification extends Model
   {
     return $this->where('is_viewed', 0)->get();
   }
+
+  public function user()
+  {
+    return $this->belongsTo(User::class, 'user_id');
+  }
+
+  public function meeting()
+  {
+    return $this->belongsTo(Meeting::class, 'table_id');
+  }
 }
