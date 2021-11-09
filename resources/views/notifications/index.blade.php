@@ -17,7 +17,9 @@
             <div class="card-body">
               <h5 class="card-title"> {{ $notification->title }}</h5>
               <p class="card-text">{{$notification->description }} @ {{ $notification->meeting->when }}</p>
-              <p class="card-text">Title @ {{ $notification->meeting->what }}</p>
+              <a href="create-meetings/{{ $notification->table_id }}">
+                <p class="card-text">Title @ {{ $notification->meeting->what }}</p>
+              </a>
             </div>
             <div class="card-footer">
               <div class="d-flex justify-content-between">
