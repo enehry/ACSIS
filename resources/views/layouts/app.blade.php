@@ -79,7 +79,7 @@
               Activity
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/activity">Activity</a>
+              <a class="dropdown-item" href="/activity-logs">Activity</a>
               @if(Auth::user()->role != 'stakeholder')
               <a class="dropdown-item" href="/create-meetings">Create Meeting</a>
               @endif
