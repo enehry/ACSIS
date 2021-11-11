@@ -30,6 +30,6 @@ class Notification extends Model
 
   public function meeting()
   {
-    return $this->belongsTo(Meeting::class, 'table_id');
+    return $this->belongsTo(Meeting::class, 'table_id')->with('user');
   }
 }

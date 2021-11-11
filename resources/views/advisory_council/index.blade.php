@@ -17,9 +17,11 @@
     @endif
   </div>
   <div class="col-md-6 mb-2">
+    @if(Auth::user()->role == 'super admin')
     <a href="/advisory-council/create">
       <button class="btn btn-primary float-right">Create New</button>
     </a>
+    @endif
   </div>
 </div>
 <table class="table table-striped table-bordered dt-responsive" style="width:100%" id="advCouncilStakeholder">
@@ -33,7 +35,9 @@
       <th scope="col">bday</th>
       <th scope="col">position</th>
       <th scope="col">role</th>
+      @if(Auth::user()->role == 'super admin')
       <th scope="col">Actions</th>
+      @endif
     </tr>
   </thead>
   <tbody>
@@ -54,6 +58,7 @@
       <td>{{ $stakeholder->bday }}</td>
       <td>{{ $stakeholder->position }}</td>
       <td>{{ $stakeholder->role }}</td>
+      @if(Auth::user()->role == 'super admin')
       <td>
         <a href="/advisory-council/{{ $stakeholder->id }}/edit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a>
         <form method="POST" action="/advisory-council/{{ $stakeholder->id }}">
@@ -66,6 +71,7 @@
           </div>
         </form>
       </td>
+      @endif
     </tr>
     @endforeach
   </tbody>
